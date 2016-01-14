@@ -5,6 +5,4 @@ class Employee < ActiveRecord::Base
 	validates_uniqueness_of :email
 end
 
-# class PortManager < Employee
 
-# end

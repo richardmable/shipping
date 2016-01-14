@@ -7,5 +7,7 @@ class Salesman < ActiveRecord::Base
 	#check if there is already a salesman for that territory
 	validates_uniqueness_of :territory
 	validates_uniqueness_of :email
+	has_many :work_orders
+	has_many :boats, through: :salesman_boats
 
 end

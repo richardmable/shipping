@@ -4,3 +4,7 @@ class Employee < ActiveRecord::Base
 	validates_presence_of :password, on: :create
 	validates_uniqueness_of :email
 end
+
+# class PortManager < Employee
+
+# end

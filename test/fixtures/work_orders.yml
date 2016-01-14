@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  origin: MyString
+  destination: MyString
+  containers: 1
+  boat_id: 1
+  name: MyString
+  description: MyString
+
+two:
+  origin: MyString
+  destination: MyString
+  containers: 1
+  boat_id: 1
+  name: MyString
+  description: MyString

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sales_man_id: 1
+  boat_id: 1
+
+two:
+  sales_man_id: 1
+  boat_id: 1

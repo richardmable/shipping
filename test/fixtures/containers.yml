@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  work_order_id: 1
+  weight: 1
+  cargo_type: 1
+
+two:
+  work_order_id: 1
+  weight: 1
+  cargo_type: 1

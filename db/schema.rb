@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160114184156) do
+ActiveRecord::Schema.define(version: 20160114190100) do
 
   create_table "boats", force: :cascade do |t|
     t.integer  "container_limit"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20160114184156) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.boolean  "complete"
+    t.integer  "salesman_id"
   end
 
 end

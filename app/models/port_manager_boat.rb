@@ -1,2 +1,2 @@
-class PortManagerBoat < ActiveRecord::Base
+class PortManagerBoats < ActiveRecord::Base
 end

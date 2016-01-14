@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160114191453) do
+ActiveRecord::Schema.define(version: 20160114195720) do
 
   create_table "boat_work_orders", force: :cascade do |t|
     t.integer  "boat_id"
@@ -37,13 +37,6 @@ ActiveRecord::Schema.define(version: 20160114191453) do
     t.datetime "updated_at",    null: false
   end
 
-  create_table "employees", force: :cascade do |t|
-    t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
   create_table "port_manager_boats", force: :cascade do |t|
     t.integer  "port_manager_id"
     t.integer  "boat_id"
@@ -53,8 +46,10 @@ ActiveRecord::Schema.define(version: 20160114191453) do
 
   create_table "port_managers", force: :cascade do |t|
     t.string   "location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "email"
+    t.string   "password_digest"
   end
 
   create_table "salesman_boats", force: :cascade do |t|
@@ -66,8 +61,10 @@ ActiveRecord::Schema.define(version: 20160114191453) do
 
   create_table "salesmen", force: :cascade do |t|
     t.string   "territory"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "email"
+    t.string   "password_digest"
   end
 
   create_table "work_orders", force: :cascade do |t|

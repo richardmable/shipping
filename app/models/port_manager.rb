@@ -7,5 +7,5 @@ class PortManager < Employee
 	#check if there is already a port managed for that location
 	validates_uniqueness_of :location
 	#link to boats through join table
-	has_many :boats, through :port_manager_boats
+	has_many :boats, through: :port_manager_boats
 end

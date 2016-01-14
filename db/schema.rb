@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160114195720) do
+ActiveRecord::Schema.define(version: 20160114225024) do
 
   create_table "boat_work_orders", force: :cascade do |t|
     t.integer  "boat_id"
@@ -23,10 +23,10 @@ ActiveRecord::Schema.define(version: 20160114195720) do
   create_table "boats", force: :cascade do |t|
     t.integer  "container_limit"
     t.string   "name"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.boolean  "at_sea"
-    t.string   "port"
+    t.integer  "destination_port_manager_id"
   end
 
   create_table "containers", force: :cascade do |t|
@@ -68,17 +68,17 @@ ActiveRecord::Schema.define(version: 20160114195720) do
   end
 
   create_table "work_orders", force: :cascade do |t|
-    t.string   "origin"
-    t.string   "destination"
     t.integer  "containers"
     t.integer  "boat_id"
     t.string   "name"
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.boolean  "complete"
     t.integer  "salesman_id"
     t.integer  "route_id"
+    t.integer  "origin_port_manager_id"
+    t.integer  "destination_port_manager_id"
   end
 
 end

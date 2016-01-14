@@ -1,5 +1,6 @@
 class WorkOrdersController < ApplicationController
   def index
+    @workorders = Workorders.all
   end
 
   def show

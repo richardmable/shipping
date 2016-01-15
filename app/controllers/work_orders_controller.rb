@@ -1,5 +1,6 @@
 class WorkOrdersController < ApplicationController
   def index
+    @WorkOrders = WorkOrder.all
  
   end
 
@@ -23,18 +24,7 @@ c.each do |f|
   end
 
 end
-# for x in 0...2
-#     cargotype = container[0]
-#     weight = container[1]
-    
-#       Container.create(cargotype, weight)
-#    end
 
-  
-
-        puts "CREATING"
-    # puts params
-    # redirect_to salesmen_path
   end
 
   def destroy

@@ -8,6 +8,7 @@ class Salesman < ActiveRecord::Base
 	validates_uniqueness_of :territory
 	validates_uniqueness_of :email
 	has_many :work_orders
-	has_many :boats, through: :salesman_boats
+	has_many :boats, through: :salesman_boat
+	has_many :salesman_boat
 
 end

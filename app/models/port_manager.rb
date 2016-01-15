@@ -9,5 +9,6 @@ class PortManager < ActiveRecord::Base
 	validates_uniqueness_of :email
 	#link to boats through join table
 	has_many :boats, through: :port_manager_boats
+	has_many :port_manager_boats
 	has_many :work_orders
 end

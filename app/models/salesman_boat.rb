@@ -1,4 +1,4 @@
 class SalesmanBoat < ActiveRecord::Base
-	has_many :boats
-	has_many :salesmen
+	belongs_to :boat
+	belongs_to :salesman
 end

@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-WorkOrder.create(containers: 100, boat_id: 4, name: "Merck", description: "Shippment of pharmaceuticals to be distributed throughout Eastern Africa.  Terms: FOB Destination", complete: false, salesman_id: 1)
+WorkOrder.create(container_count: 100, boat_id: 4, name: "Merck", description: "Shippment of pharmaceuticals to be distributed throughout Eastern Africa.  Terms: FOB Destination", complete: false, salesman_id: 1)
 
 
 

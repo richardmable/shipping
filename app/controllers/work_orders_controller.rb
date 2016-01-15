@@ -7,34 +7,28 @@ class WorkOrdersController < ApplicationController
   end
 
   def create
-       @w = WorkOrder.create(wo_params)
-#         (:name parms[p, :description, :salesman_id, container_attributes: [ :quantity, :cargo_type, :weight])
-#  @S.save
+    #check to see if the cargo description is at least 50 chars
+    #uses a regexp where \. selects every character and .count then counts them
+    if wo_params[:description].count "/\./" < 50 
+      flash[:alert] = "The cargo description needs to be at least 50 characters"
+      render :index
+    else
+      @w = WorkOrder.create(wo_params)
+      puts "************************"
+      puts c = wo_params[:containers_attributes]
 
-puts "************************"
-puts c = wo_params[:containers_attributes]
-
-c.each do |f|
-  puts f.inspect
-  q =  f[1][:quantity]
-  for i in 0...q.to_i
-    puts "CONTAINER CREATING"
-    @w.containers.push Container.create(cargo_type: f[1][:cargo_type], weight: f[1][:weight] )
+      c.each do |f|
+        puts f.inspect
+        q =  f[1][:quantity]
+          for i in 0...q.to_i
+            puts "CONTAINER CREATING"
+            @w.containers.push Container.create(cargo_type: f[1][:cargo_type], weight: f[1][:weight] )
+          end
+      end
+      #redirect_to where?
+    end
   end
 
-end
-# for x in 0...2
-#     cargotype = container[0]
-#     weight = container[1]
-    
-#       Container.create(cargotype, weight)
-#    end
-
-  
-
-        puts "CREATING"
-    # puts params
-    # redirect_to salesmen_path
   end
 
   def destroy
@@ -43,6 +37,7 @@ end
   def new
   end
 
+  private
    def wo_params
     params.require(:work_order).permit(:name, :description, :destination_port_manager_id, :origin_port_manager_id, :salesman_id, containers_attributes: [ :quantity, :cargo_type, :weight])
   end

@@ -1,2 +1,70 @@
 <h1>Salesmen#index</h1>
 <p>Find me in app/views/salesmen/index.html.erb</p>
+
+
+<%= form_for @workorder do |f| %>   
+		<%=f.label "Company" %>   
+		<%=f.text_field :name %> <br><br>
+		<%=f.label "Description of shipment" %> 
+		<br>
+		<%=f.text_area(:description, cols: 100, rows: 6)%>  <br><br>
+		  
+		
+
+
+		<!-- This needs to call the current sales rep -->
+			<%=f.hidden_field :salesman_id, :value => 1%>
+
+		
+
+
+Port of origin
+<%= f.select :origin_port_manager_id, ports_select_option, {include_blank: true}%>
+Destination port
+<%= f.select :destination_port_manager_id, ports_select_option,  {include_blank: true}%>
+
+This will call the partial for the line item table
+	<table border="1">
+	
+	<tr>
+    <td width="20">Line</td>
+    <td width="30">Number of Containers</td> 
+    <td width="160">Items Shipped</td>
+    <td width="160">Container Type</td>
+  </tr>
+
+
+ <% (1..4).each do |i| %>
+    <%= f.fields_for :containers do |y| %>
+
+ 
+
+  <tr>
+    <td><%= i %></td>
+  
+    <td>
+		
+    	
+    	<%= y.text_field :quantity %>
+    </td> 
+    
+
+    <td><%= y.select :cargo_type, cargo_type_name,  {include_blank: true} %></td>
+    <td><%= y.select :weight, cargo_weight,  {include_blank: true} %></td>
+  </tr>
+  <br>
+  <%end%>
+  <%end%>
+  
+</table>
+
+
+			
+
+		<!-- this loop is nested inside of the form and will give the different categories that an article may fall into. -->
+
+
+
+		<br><br>	
+		<%=f.submit :create %> 
+		<% end %>

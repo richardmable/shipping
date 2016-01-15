@@ -10,12 +10,11 @@ WorkOrder.create(containers: 100, boat_id: 4, name: "Merck", description: "Shipp
 
 
 
-BoatWorkOrders.create(boat_id: 4, work_order_id: 1)
+BoatWorkOrder.create(boat_id: 4, work_order_id: 1)
 
-SalesmanBoats.create(salesman_id: 1, boat_id: 4)
+SalesmanBoat.create(salesman_id: 1, boat_id: 4)
 
 
-The ones abover are failing to seed due to 100 num error
 
 
 Salesman.create(email: "kevin@kkr.com", password: "123", territory: "Europe")

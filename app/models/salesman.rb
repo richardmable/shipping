@@ -9,5 +9,5 @@ class Salesman < ActiveRecord::Base
 	validates_uniqueness_of :email
 	has_many :work_orders
 	has_many :boats, through: :salesman_boats
-
+	has_many :salesman_boats
 end

@@ -1,4 +1,4 @@
-class PortManagerBoats < ActiveRecord::Base
-	has_many :port_managers
-	has_many :boats
+class PortManagerBoat < ActiveRecord::Base
+	belongs_to :port_manager
+	belongs_to :boat
 end

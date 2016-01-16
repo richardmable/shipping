@@ -10,6 +10,32 @@
 	<!-- allows flash messaging -->
 	<%= flash[:notice] if flash[:notice] %>
 	<%= flash[:alert] if flash[:alert] %>
+		<div class="navmenu_l">
+			<nav>
+				<ul>
+					<li><a href="/port_managers">Port Managers</a></li>
+					<li><a href="/salesmen">Salesmen</a></li>
+					<li><a href="/boats">Vessels</a></li>
+					<% if @currentPortManager %>
+					<li><a href="/boats/new">Construct A Ship</a></li>
+					<% end %>
+					<li><a href="/work_orders">Work Orders</a></li>
+					<% if @currentSalesman %>
+					<li><a href="/work_orders/new">New Work Order</a></li>
+					<% end %>
+					<li><a href="/containers">Containers</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="navmenu_r">
+			<nav>
+				<ul>
+					<li><a href="/login">Log In</a></li>
+					<li><a href="/logout">Log Out</a></li>
+				</ul>
+			</nav>
+		</div>
+
 
 	<!-- links for the navigation bar -->
 	<nav>

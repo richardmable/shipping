@@ -1,0 +1,43 @@
+	<div class="wrapper">
+		<div class="logo_home"></div>
+		<div class="left_home">
+			<div class="saleshl"><h1>sales team<h1></div>
+			<div class="salesin">
+				<div class="signinfields">
+					<%= form_tag("/login", method: "post") do %>  
+				     <%=label_tag(:username, "username:") %>   
+				     <%=text_field_tag(:username) %>
+				     <br>
+				     <br>
+				     <%=label_tag(:password, "password:") %>   
+				     <%=password_field_tag(:password) %> 
+				     <br>  
+				     <br>
+				     <%=submit_tag("Submit") %> 
+				     <% end %>
+				</div>
+		</div>
+        			<video autoplay loop id="lvideo-background" muted poster="">
+            		<source src="/assets/vids_home/sales_home1.mp4">
+        			</video>
+		</div>
+		<div class="right_home">
+			<div class="porthl"><h1>port manager<h1></div>
+			<div class="portin">
+				<div class="signinfields">
+					<%= form_tag("/login", method: "post") do %>  
+				     <%=label_tag(:username, "username:") %>   
+				     <%=text_field_tag(:username) %>
+				     <br><br>
+				     <%=label_tag(:password, "password:") %>   
+				     <%=password_field_tag(:password) %> 
+				     <br><br> 
+				     <%=submit_tag("Submit") %> 
+				     <% end %>
+				</div>
+			</div>
+        			<video autoplay loop id="rvideo-background" muted poster="">
+            		<source src="/assets/vids_home/port_home1.mp4">
+        			</video>
+		</div>
+	</div>

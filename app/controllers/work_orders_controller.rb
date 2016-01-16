@@ -11,12 +11,14 @@ end
 def create
     #check to see if the cargo description is at least 50 chars
     #uses a regexp where \. selects every character and .count then counts them
-    if wo_params[:description].count "/\./" < 50 
-      flash[:alert] = "The cargo description needs to be at least 50 characters"
-      render "sales#index"
-    else
+    # puts params
+    # puts wo_params
+    # if params[:description].length < 50 
+    #   flash[:alert] = "The cargo description needs to be at least 50 characters"
+    #   render "sales#index"
+    # else
       @w = WorkOrder.create(wo_params)
-      
+      puts "************************"
       puts c = wo_params[:containers_attributes]
 
       c.each do |f|
@@ -26,7 +28,7 @@ def create
           puts "CONTAINER CREATING"
           @w.containers.push Container.create(cargo_type: f[1][:cargo_type], weight: f[1][:weight] )
         end
-      end
+      # end
       #redirect_to where?
     end
   
@@ -57,3 +59,5 @@ def wo_params
     params.require(:work_order).permit(container_attributes: [ :quantity])
   end
 end
+
+

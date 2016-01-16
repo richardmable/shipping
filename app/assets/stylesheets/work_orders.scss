@@ -1,3 +1,83 @@
 // Place all the styles related to the Work_Orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.wo_open_head {
+	width: 490px;
+	height: 65px;
+	margin-top: -5px;
+	margin-left: 5px;
+	margin-bottom: -9px;
+	background-image: image-url('wo_open.svg');
+	background-repeat:no-repeat;
+	background-position: center;
+	background-color: rgba(48,182,255, 0.6);
+}
+
+.wo_closed_head {
+	width: 490px;
+	height: 65px;
+	margin-top: -5px;
+	margin-left: 5px;
+	margin-bottom: -9px;
+	background-image: image-url('wo_closed.svg');
+	background-repeat:no-repeat;
+	background-position: center;
+	background-color: rgba(48,182,255, 0.6);
+}
+.woshow_editbutt {
+	display: flex;
+	width: 150px;
+	height: 40px;
+	margin-top: 365px;
+	margin-left: 270px;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 400;
+	font-size: 20px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: rgb(187, 187, 187);
+	padding: 0;
+	border: none;
+	// background: none;
+	background: rgb(255,255,255);
+	cursor: pointer;
+	transition: 0.6s ease;
+	z-index: 400;
+	text-align:center;
+	justify-content:center;
+	align-items:center;
+}
+.woshow_editbutt:hover {
+	color: rgb(189, 8, 17);
+	font-weight: 600;
+	height: 60px;
+}
+.woshow_savebutt {
+	display: flex;
+	width: 150px;
+	height: 40px;
+	margin-top: 365px;
+	margin-left: 270px;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 400;
+	font-size: 20px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: rgb(187, 187, 187);
+	padding: 0;
+	border: none;
+	// background: none;
+	background: rgb(255,255,255);
+	cursor: pointer;
+	transition: 0.6s ease;
+	z-index: 400;
+	text-align:center;
+	justify-content:center;
+	align-items:center;
+}
+.woshow_savebutt:hover {
+	color: rgb(189, 8, 17);
+	font-weight: 600;
+	height: 60px;
+}

@@ -1,0 +1,165 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,100,300,500,600);
+
+html {
+	height: 100%;
+	box-sizing: border-box;
+	overflow-x: hidden;
+}
+body {
+  	position: relative;
+  	margin: 0;
+  	min-height: 100%;
+  	background-color: rgb(255, 248, 232);
+}
+
+
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content:center;
+	align-items:center;
+}
+
+.logo_home {
+	// display: flex;
+	z-index: 9999;
+	width: 300px;
+	height: 300px;
+	background-image: image-url('logo_home.svg');
+	background-repeat:no-repeat;
+	background-position: center;
+	position: absolute;
+    top: -60px;
+    left: 39.5%;
+    // margin-top: 20px;
+    // margin-left: 80px;
+    // opacity: 0.7;
+}
+
+
+.left_home {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width:50%;
+	height: 100%;
+	overflow:hidden;
+	z-index: 5;
+	transition: 1s;
+	text-align: center;
+}
+.left_home:hover {
+	width:65%;
+	height: 100%;
+	overflow:hidden;
+	z-index:100;
+	transition-delay: 1s;
+}
+#lvideo-background {
+  position: absolute;
+  left: 0;
+  height: 100%;   
+  z-index: 100;
+  margin: 0 auto;
+}
+.salesin {
+	display: none;
+	top:38%;
+	left: 72%;
+	width: 250px;
+	height: 200px;
+	background-image: image-url('signin.svg');
+	background-repeat:no-repeat;
+	background-position: center;
+	position: absolute;
+	border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255,255,255);
+    opacity: 0.9;
+	z-index: 900;
+}
+.saleshl {
+	display: flex;
+	position: fixed;
+	justify-content:center;
+	align-items:center;
+	z-index: 800;
+	width: 50%;
+	height: 20%;
+	top: 40%;
+}
+.saleshl h1{
+	font-family: 'Raleway', sans-serif;
+	font-weight: 100;
+	font-size: 74px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: rgb(255, 255, 255);
+}
+
+.right_home{
+	position: fixed;
+	top: 0;
+	right: 0px;
+	width:50%;
+	height: 100%;
+	overflow:hidden;
+	z-index: 5;
+	transition: 1s;
+}
+.right_home:hover {
+	width:65%;
+	height: 100%;
+	z-index:5;
+	transition-delay: 1s;
+}
+#rvideo-background {
+  	position: absolute;
+  	right: 0;
+  	height: 100vh;   
+  	z-index: 1;
+}
+.portin {
+	display: none;
+	top:38%;
+	right:72%;
+	width: 250px;
+	height: 200px;
+	background-image: image-url('signin.svg');
+	background-repeat:no-repeat;
+	background-position: center;
+	position: absolute;
+	border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255,255,255);
+    opacity: 0.9;
+	z-index: 900;
+}
+.porthl {
+	display: flex;
+	position: fixed;
+	justify-content:center;
+	align-items:center;
+	z-index: 800;
+	width: 50%;
+	height: 20%;
+	top: 40%;
+	right: 0;
+}
+.porthl h1{
+	font-family: 'Raleway', sans-serif;
+	font-weight: 100;
+	font-size: 74px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: rgb(255, 255, 255);
+}
+.signinfields {
+	width: 220px;
+	height: 100px;
+	margin-top: 90px;
+	margin-left: 15px;
+}
+
+

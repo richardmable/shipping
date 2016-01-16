@@ -14,3 +14,63 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+// var cancel = false;
+// $(".salesin").hide();
+// $(".right_home").hover(function(){
+
+// cancel = (cancel)?false: true;    
+// //alert('test');
+// if(!cancel){
+// $(".salesin").hide();
+// }
+// else if(cancel){
+// $(".salesin").show();
+// }
+    
+
+// });
+
+// var w = $(window).width(), h = $(window).height()  
+//         $('#video-block video').css({height: ''+h+'',width: ''+w+''})
+//         $(window).resize(function(){
+//         var w = $(window).width(), h = $(window).height()  
+//         $('#video-block video').css({height: ''+h+'',width: ''+w+''})
+//         })
+
+
+
+ // $('.left_home').hover(
+ //        function () {
+ //            $(".salesin").fadeIn();
+ //        },
+ //        function () {
+ //            $(".salesin").fadeOut();
+ //        }
+ //    );
+
+$(function(){
+    $(".left_home").hover(function(){
+      $(this).find(".salesin").delay(2000).fadeIn(1000);
+      $('.logo_home').delay(1000).animate({left: '54.7%'}, 1200);
+    }
+    ,function(){
+    $(this).find(".salesin").fadeOut(200);
+    $('.logo_home').animate({left: '39.5%'}, 1200);
+    }
+    );        
+});
+$(function(){
+    $(".right_home").hover(function(){
+      $(this).find(".portin").delay(2000).fadeIn(1000);
+      $('.logo_home').delay(1000).animate({left: '24.5%'}, 1200);
+    }
+    ,function(){
+    $(this).find(".portin").fadeOut(200);
+    $('.logo_home').animate({left: '39.5%'}, 1200);
+    }
+    );        
+});
+
+
+

@@ -1,2 +1,8 @@
 <h1>WorkOrders#show</h1>
 <p>Find me in app/views/work_orders/show.html.erb</p>
+
+
+<% @container.each do |w|%> 
+<%= w.weight%> <%= w.cargo_type%>  <%= w.updated_at.strftime('%A, %B %d, %Y  %I:%M %p')%><br>
+
+<%end%>

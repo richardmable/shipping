@@ -9,19 +9,24 @@ class ApplicationController < ActionController::Base
 	#this will set the session if a user logs in as 
 	#a Port Manager and call @currentPortManager
 	#to run methods on the logged in user
+	#need to check if there is a session id and whether that PortManager exists
+	#this is becuase we run this method on every action, and if only logged in as one
+	#or the other, the application will crash since there is a session id
 	def current_port_manager
-		if session[:user_id]
-			@currentPortManager = PortManger.find(session[:user_id])
+		if session[:user_id] && if PortManager.where(id: session[:user_id]).exists?
+			@currentPortManager = PortManager.find(session[:user_id])
 		end
+	end
 	end
 
 	#this will set the session if a user
 	#logs in as a Salesman, and call @currentSalesman
 	#to run methods on the logged in user
 	def current_salesman
-		if session[:user_id]
+		if session[:user_id] && if Salesman.where(id: session[:user_id]).exists?
 			@currentSalesman = Salesman.find(session[:user_id])
 		end
+	end
 	end
 
 	#this is a method if we do not want

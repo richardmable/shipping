@@ -16,7 +16,7 @@ def create
       render "sales#index"
     else
       @w = WorkOrder.create(wo_params)
-      puts "************************"
+      
       puts c = wo_params[:containers_attributes]
 
       c.each do |f|

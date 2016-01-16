@@ -3,6 +3,8 @@ class ContainersController < ApplicationController
   end
 
   def index
+
+  	@containers = Container.all
   end
 
   def create

@@ -10,6 +10,10 @@ class BoatsController < ApplicationController
     @boat = Boat.new
   end
 
+  def show
+      @boat = Boat.where(id: params[:id])
+
+  end
 
   def create
     #need logic for inserting boat owner with the boat

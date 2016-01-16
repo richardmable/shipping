@@ -11,7 +11,9 @@ end
 def create
     #check to see if the cargo description is at least 50 chars
     #uses a regexp where \. selects every character and .count then counts them
-    if wo_params[:description].count "/\./" < 50 
+    puts params
+    puts wo_params
+    if params[:description].length < 50 
       flash[:alert] = "The cargo description needs to be at least 50 characters"
       render "sales#index"
     else

@@ -1,3 +1,101 @@
 // Place all the styles related to the Port_Managers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.logo_port {
+	// display: flex;
+	z-index: 9999;
+	width: 200px;
+	height: 200px;
+	background-image: image-url('logo_home.svg');
+	background-repeat:no-repeat;
+	background-position: center;
+	position: absolute;
+    top: -40px;
+    left: 2.5%;
+}
+// LEFT SIDE
+.po_show_left {
+	left: 12%;
+	width: 500px;
+	height: 432px;
+	margin-top: 30px;
+	position: absolute;
+	border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255,255,255);
+	z-index: 900;
+	overflow: hidden;
+}
+.po_assign_head {
+	width: 490px;
+	height: 65px;
+	margin-top: -5px;
+	margin-left: 5px;
+	margin-bottom: -9px;
+	background-image: image-url('wo_assign.svg');
+	background-repeat:no-repeat;
+	background-position: center;
+}
+
+// RIGHT SIDE
+.po_show_right {
+	right: 14%;
+	width: 500px;
+	height: 432px;
+	margin-top: 30px;
+	position: absolute;
+	border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255,255,255);
+	z-index: 900;
+	overflow: hidden;
+}
+.po_arrive_head {
+	width: 490px;
+	height: 45px;
+	margin-top: 5px;
+	margin-left: 5px;
+	// margin-bottom: -8px;
+	background-image: image-url('bo_arrive.svg');
+	background-repeat:no-repeat;
+	background-position: center;
+}
+
+
+// SCROLL BAR STYLING
+// LEFT
+.po_show_left::-webkit-scrollbar {
+    width: 0.3em;
+}
+
+.po_show_left::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.po_show_left::-webkit-scrollbar-thumb {
+  background-color: rgba(40,172,255,0.7);
+}
+
+.po_show_left:hover {
+	overflow-y: scroll;
+	padding-right: 0px;
+}
+
+// RIGHT
+.po_show_right::-webkit-scrollbar {
+    width: 0.3em;
+}
+
+.po_show_right::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.po_show_right::-webkit-scrollbar-thumb {
+  background-color: rgba(40,172,255,0.7);
+}
+
+.po_show_right:hover {
+	overflow-y: scroll;
+	padding-right: 0px;
+}
+

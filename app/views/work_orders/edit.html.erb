@@ -1,6 +1,3 @@
-<!-- <h1>WorkOrders#show</h1>
-<p>Find me in app/views/work_orders/show.html.erb</p> -->
-
 <div class="logo_sales"></div>
 	<div class="wrapper">
 		<div class="sales_lo">
@@ -10,7 +7,7 @@
 					<div class="wo_head"></div>
 					<div class="wo_show_bkg"></div>
 					<!-- this needs to be swapped out with a turbolink code -->
-					<div class="woshow_editbutt">EDIT</div>
+					<div class="woshow_editbutt">save</div>
 					<div class="wo_show">
 						<% @container.each do |w|%> 
 							<%= w.weight%> <%= w.cargo_type%>  <%= w.updated_at.strftime('%A, %B %d, %Y  %I:%M %p')%><br>

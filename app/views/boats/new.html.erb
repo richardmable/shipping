@@ -1,0 +1,8 @@
+<h1>Create a new boat:</h1>
+
+<%= form_for @boat do |b| %>
+	<%= b.label :Name %>
+	<%= b.text_field :name %>
+	<%= b.label :Container_Limit %>
+	<%= b.number_field :container_limit %>
+<% end %>

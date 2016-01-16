@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  
+
+  resources :port_managers, :salesmen, :work_orders, :boats, :containers
+  root 'sessions#index'
+
   get 'sessions/create'
 
   get 'sessions/destroy'
 
-  resources :employees, :boats, :containers, :port_managers, :salesmen, :work_orders
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

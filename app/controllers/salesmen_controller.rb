@@ -10,6 +10,7 @@ class SalesmenController < ApplicationController
   end
 
   def show
+    @workorder = WorkOrder.new
   end
 
   def destroy

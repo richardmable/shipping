@@ -11,7 +11,7 @@ class WorkOrdersController < ApplicationController
     #uses a regexp where \. selects every character and .count then counts them
     if wo_params[:description].count "/\./" < 50 
       flash[:alert] = "The cargo description needs to be at least 50 characters"
-      render :index
+      render "sales#index"
     else
       @w = WorkOrder.create(wo_params)
       puts "************************"

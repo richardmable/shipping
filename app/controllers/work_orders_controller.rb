@@ -5,7 +5,8 @@ class WorkOrdersController < ApplicationController
   end
 
   def show
-  end
+  @container = Container.where(work_order_id: params[:id])
+end
 
   def create
        @w = WorkOrder.create(wo_params)
@@ -32,6 +33,9 @@ end
 
   def new
   end
+
+
+  private
 
    def wo_params
     params.require(:work_order).permit(:name, :description, :destination_port_manager_id, :origin_port_manager_id, :salesman_id, containers_attributes: [ :quantity, :cargo_type, :weight])

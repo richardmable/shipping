@@ -1,11 +1,13 @@
 class SessionsController < ApplicationController
 	#sessions index is our landing page
 	def index
+		#don't use the application view layout on this landing page
+		render :layout => false
 		#Route them to their respective home pages if they are already logged in
 		if current_port_manager
-			redirect_to port_managers_path :notice => "Currently logged in as #{portManager.email}"
+			redirect_to port_managers_path :notice => "Currently logged in as #{@currentPortManager.email}"
 		elsif current_salesman
-			redirect_to salesmen_path :notice => "Currently logged in as #{salesman.email}"
+			redirect_to salesmen_path :notice => "Currently logged in as #{@currentSalesman.email}"
 		end
 	end
 
@@ -13,7 +15,7 @@ class SessionsController < ApplicationController
 	#depending on whether the user logs in as port manager or a salesman
 	def create
 		#Check if the user entered a port manager email
-		if PortManager.where(email: params[:email]).first
+		if PortManager.where(email: params[:email]).exists?
 			#if the email is found in port managers, set portManager to that user
 			portManager = PortManager.where(email: params[:email]).first
 			#if the email and password using authenticate match
@@ -31,7 +33,7 @@ class SessionsController < ApplicationController
 	  			render :index
 			end
 		#check if the user entered a salesman email
-		elsif Salesman.where(email: params[:email]).first
+		elsif Salesman.where(email: params[:email]).exists?
 			#if the user entered a salesman email, set salesman to that user
 			salesman = Salesman.where(email: params[:email]).first
 			if salesman && salesman.authenticate(params[:password])

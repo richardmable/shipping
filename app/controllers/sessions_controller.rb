@@ -22,10 +22,12 @@ class SessionsController < ApplicationController
 			if portManager && portManager.authenticate(params[:password])
 				#set the session id to the port manager's id
 				session[:user_id] = portManager.id
+				session[:user_email] = portManager.email
 				#set @currentPortManager to the current Port Manager
 				current_port_manager
 				#redirect them to the port manager home page: the index action/view of Port Managers
-				redirect_to port_managers_path :notice => "Successfully logged in as #{portManager.email}"
+				flash[:notice] = "Successfully logged in as #{portManager.email}"
+				redirect_to port_managers_path
 			else
 				#if they did not match, tell them one or the other didn't match
 				flash[:alert] = "Your email or password did not match."
@@ -39,10 +41,12 @@ class SessionsController < ApplicationController
 			if salesman && salesman.authenticate(params[:password])
 				#set the session id to the salesman's id
 				session[:user_id] = salesman.id
+				session[:user_email] = salesman.email
 				#set @currentSalesman to the current Salesman
 				current_salesman
 				#redirect them to the salesmen home page: the index action/view of Salesmen
-				redirect_to salesmen_path :notice => "Successfully logged in as #{salesman.email}"
+				flash[:notice] = "Successfully logged in as #{salesman.email}"
+				redirect_to salesmen_path
 			else
 				#if they did not match, tell them one or the other didn't match
 				flash[:alert] = "Your email or password did not match."

@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 	#this is becuase we run this method on every action, and if only logged in as one
 	#or the other, the application will crash since there is a session id
 	def current_port_manager
-		if session[:user_id] && if PortManager.where(id: session[:user_id]).exists?
+		if session[:user_id] && if PortManager.where(email: session[:user_email]).exists?
 			@currentPortManager = PortManager.find(session[:user_id])
 		end
 	end
@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
 	#logs in as a Salesman, and call @currentSalesman
 	#to run methods on the logged in user
 	def current_salesman
-		if session[:user_id] && if Salesman.where(id: session[:user_id]).exists?
+		if session[:user_id] && if Salesman.where(email: session[:user_email]).exists?
 			@currentSalesman = Salesman.find(session[:user_id])
 		end
 	end

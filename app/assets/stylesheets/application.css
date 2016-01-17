@@ -13,9 +13,7 @@
  *= require_tree .
  *= require_self
  */
-#menu_l {
-	margin-right: 15px;
-}
+
 .navmenu_l {
 	left:0;
 	top: 1%;
@@ -24,7 +22,7 @@
 	z-index: 9999;
 	text-align: left;
 	position: absolute;
-	margin-left: 2%;
+	margin-left: 12%;
 	display:inline;
 	text-decoration: none;
 }
@@ -110,4 +108,9 @@
 	letter-spacing: 1px;
     text-decoration: none;
 	color: rgb(19, 150, 255);
+}
+
+/* space between nav links */
+#menu_l {
+	margin-right: 15px;
 }

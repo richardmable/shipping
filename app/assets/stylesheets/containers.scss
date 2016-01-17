@@ -1,3 +1,75 @@
 // Place all the styles related to the Containers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.co_left {
+	left: 12%;
+	width: 500px;
+	height: 432px;
+	margin-top: 30px;
+	position: absolute;
+	border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255,255,255);
+	z-index: 900;
+}
+.co_head {
+	width: 490px;
+	height: 65px;
+	margin-top: -5px;
+	margin-left: 5px;
+	margin-bottom: -9px;
+	background-image: image-url('co_active.svg');
+	background-repeat:no-repeat;
+	background-position: center;
+}
+.co_bkg {
+	position: absolute;
+	width: 490px;
+	height: 240px;
+	margin-top: 5px;
+	margin-left: 5px;
+	background: rgb(255,255,255);
+	z-index: 1;
+}
+.co_list {
+	position: absolute;
+	width: 500px;
+	height: 360px;
+	margin-top: 5px;
+	margin-left: 5px;
+	z-index: 9999;
+	-webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+    -webkit-column-width: 250px;
+	-moz-column-width: 250px;
+    column-width: 250px;
+    -webkit-column-gap: 63px;
+    -moz-column-gap: 63px;
+    column-gap: 63px;
+    // overflow: hidden;
+}
+.co_show {
+	width: 430px;
+	height: 20px;
+	padding: 30px;
+	background: rgb(255,255,255);
+	margin-bottom: 10px;
+	z-index:9999;
+}
+.co_right {
+	right: 14%;
+	width: 500px;
+	height: 432px;
+	margin-top: 30px;
+	position: absolute;
+	border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255,255,255);
+	z-index: 900;
+}
+
+
+
+

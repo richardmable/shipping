@@ -10,25 +10,23 @@
 	<!-- allows flash messaging -->
 	<%= flash[:notice] if flash[:notice] %>
 	<%= flash[:alert] if flash[:alert] %>
-
-	<!-- links for the navigation bar -->
-	<nav>
-		<ul>
-			<li><a href="/port_managers">Port Managers</a></li>
-			<li><a href="/salesmen">Salesmen</a></li>
-			<li><a href="/boats">Vessels</a></li>
-			<% if @currentPortManager %>
-			<li><a href="/boats/new">Construct A Ship</a></li>
-			<% end %>
-			<li><a href="/work_orders">Work Orders</a></li>
-			<% if @currentSalesman %>
-			<li><a href="/work_orders/new">New Work Order</a></li>
-			<% end %>
-			<li><a href="/containers">Containers</a></li>
-			<li><a href="/login">Log In</a></li>
-			<li><a href="/logout">Log Out</a></li>
-		</ul>
-	</nav>
+		<div class="navmenu_l">
+			<a href="/port_managers">Port Managers</a>
+			<a href="/salesmen">Salesmen</a>
+			<a href="/boats">Vessels</a>
+					<% if @currentPortManager %>
+					<a href="/boats/new">Construct A Ship</a>
+					<% end %>
+					<a href="/work_orders">Work Orders</a>
+					<% if @currentSalesman %>
+					<a href="/work_orders/new">New Work Order</a>
+					<% end %>
+					<a href="/containers">Containers</a>
+		</div>
+		<div class="navmenu_r">
+			<a href="/login">Log In</a>
+			<a href="/logout">Log Out</a>
+		</div>
 
 <%= yield %>
 

@@ -1,3 +1,4 @@
+
 <!-- <h1>Salesmen#index</h1>
 <p>Find me in app/views/salesmen/index.html.erb</p> -->
 <div class="logo_sales"></div>
@@ -17,19 +18,14 @@
 						<%=f.text_area(:description, cols: 68, rows: 6)%>  <br><br>
 
 						<!-- This needs to call the current sales rep -->
-						<%=f.hidden_field :salesman_id, :value => 1%>
+						<%=f.hidden_field :salesman_id, :value => @currentSalesman%>
 
 						Port of origin
 						<%= f.select :origin_port_manager_id, ports_select_option, {include_blank: true}%>
 						Destination port
 						<%= f.select :destination_port_manager_id, ports_select_option,  {include_blank: true}%>
-						<% end %>
-					</div>
-				</div>
-				<div class="wo_right">
-					<div class="wo_create_r">
-					<%= form_for @workorder do |f| %>
-						<!-- This will call the partial for the line item table -->
+					
+												<!-- This will call the partial for the line item table -->
 							<table>
 							
 							<tr>
@@ -74,6 +70,10 @@
 								<br>	
 								<%=f.submit :create, class: 'wo_submit' %> 
 								<% end %>
+					</div>
+				</div>
+				<div class="wo_right">
+					<div class="wo_create_r">
 					</div>
 				</div>
 			</div>

@@ -34,6 +34,7 @@ class ApplicationController < ActionController::Base
 	def no_current_port_manager
 		if not @currentPortManager
 			flash[:alert] = "You need to be logged as a Port Manager to do that!"
+			render :back
 		end
 	end
 
@@ -42,6 +43,7 @@ class ApplicationController < ActionController::Base
 	def no_current_salesman
 		if not @currentSalesman
 			flash[:alert] = "You need to be logged as a Salesman to do that!"
+			render :back
 		end
 	end
 end

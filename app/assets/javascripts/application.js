@@ -49,6 +49,14 @@
  //        }
  //    );
 
+//this is to make the flash messaging fade in and out
+$(function(){
+  $(".flashMessage").fadeIn(200);
+  $(".flashMessage").delay(3000);
+  $(".flashMessage").fadeOut(200);
+});
+
+
 $(function(){
     $(".left_home").hover(function(){
       $(this).find(".salesin").delay(1200).fadeIn(800);

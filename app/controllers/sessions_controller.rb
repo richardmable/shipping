@@ -49,6 +49,9 @@ class SessionsController < ApplicationController
 				#render the index action of the sessions controller to stay on the login page
 	  			render :index
 			end
+		else
+			flash[:alert] = "Your email or password did not match."
+			render :index
   		end
 	end
 

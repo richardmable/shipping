@@ -8,8 +8,10 @@
 </head>
 <body>
 	<!-- allows flash messaging -->
-	<%= flash[:notice] if flash[:notice] %>
-	<%= flash[:alert] if flash[:alert] %>
+	<div class="flashMessage">
+		<p><%= flash[:notice] if flash[:notice] %></p>
+		<p><%= flash[:alert] if flash[:alert] %></p>
+	</div>
 		<% if @currentSalesman %>
 		<div class="navmenu_l">
 			<a href="/port_managers" id="menu_l">Port Managers</a>

@@ -8,12 +8,14 @@
 					<div class="bo_inport_head"></div> 
 							<% @boats.each do |x| %>
 							<!-- This will loop the whole div for any ship that is due in (destination set and at sea) -->
-							    <%if @currentPortManager.id == x.destination_port_manager_id && x.at_sea == false %> 
-							    <div class="boat_show_ip">
-							    <%=link_to x.name, boat_path(x.id), :class => 'bo_name' %> with
-							    <%=x.container_limit%> containers.
-							    </div>
-							    <%end%>
+								<% if @currentPortManager %>
+								    <%if @currentPortManager.id == x.destination_port_manager_id && x.at_sea == false %> 
+									    <div class="boat_show_ip">
+									    <%=link_to x.name, boat_path(x.id), :class => 'bo_name' %> with
+									    <%=x.container_limit%> containers.
+									    </div>
+								    <%end%>
+								<% end %>
 							<%end%>	
 				</div>
 				<div class="bo_ind_right">

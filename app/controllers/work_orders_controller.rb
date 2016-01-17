@@ -14,7 +14,7 @@ def create
     descriptionCount = wo_params[:description].count "/\./"
     if  descriptionCount.to_i < 50 
       flash[:alert] = "The cargo description needs to be at least 50 characters"
-      render "sales#index"
+      redirect_to :controller => 'salesmen', :action => 'index'
     else
       @workorder = WorkOrder.create(wo_params)
       puts "************************"
@@ -28,7 +28,7 @@ def create
           @workorder.containers.push Container.create(cargo_type: f[1][:cargo_type], weight: f[1][:weight] )
         end
       end
-      #redirect_to where?
+      redirect_to work_orders_path
     end
   
 

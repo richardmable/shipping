@@ -15,15 +15,16 @@
 						<%=f.text_field :name, class: 'co_name' %> <br><br>
 						<%=f.label "Description of shipment" %> 
 						<br>
-						<%=f.text_area(:description, cols: 68, rows: 6)%>  <br><br>
+						<%=f.text_area(:description, cols: 68, rows: 7)%>  <br><br>
 
 						<!-- This needs to call the current sales rep -->
 						<%=f.hidden_field :salesman_id, :value => @currentSalesman%>
 
 						Port of origin
 						<%= f.select :origin_port_manager_id, ports_select_option, {include_blank: true}%>
-						Destination port
+						Destination
 						<%= f.select :destination_port_manager_id, ports_select_option,  {include_blank: true}%>
+						<br><br>
 					
 												<!-- This will call the partial for the line item table -->
 							<table>
@@ -36,7 +37,7 @@
 						  </tr>
 
 
-						 <% (1..4).each do |i| %>
+						 <% (1..5).each do |i| %>
 						    <%= f.fields_for :containers do |y| %>
 
 						 

@@ -1,42 +1,19 @@
 
-
-
-<!-- <h1>All the Boats:</h1> -->
-
 <div class="logo_port"></div>
 	<div class="wrapper">
 		<div class="sales_lo">
 			<div class="wo_show_wrap">
 				<div class="bo_ind_left">
-					<div class="bo_inport_head"></div>
-						<div class="boat_show_ip">
-
-
-
-	
-						<% @boats.each do |x| %> 
-
-						<!-- This will loop the whole div for any ship that is due in (destination set and at sea) -->
-							
-
-
-								<%if @currentPortManager.id == x.destination_port_manager_id && x.at_sea == false %> 
-
-								<%=link_to x.name, boat_path(x.id)%> with
-
-
-
-
-								<%=x.container_limit%> containers.<br>
-								
-
-								<%end%>
-
-							
-						<%end%>
-						</div>
-
-						
+					<div class="bo_inport_head"></div> 
+							<% @boats.each do |x| %>
+							<!-- This will loop the whole div for any ship that is due in (destination set and at sea) -->
+							    <%if @currentPortManager.id == x.destination_port_manager_id && x.at_sea == false %> 
+							    <div class="boat_show_ip">
+							    <%=link_to x.name, boat_path(x.id), :class => 'bo_name' %> with
+							    <%=x.container_limit%> containers.
+							    </div>
+							    <%end%>
+							<%end%>	
 				</div>
 				<div class="bo_ind_right">
 				<div class="bo_as_head"></div>
@@ -62,5 +39,3 @@
         			</video>
 	</div>
 </div>
-
-

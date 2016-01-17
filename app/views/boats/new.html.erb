@@ -1,8 +1,23 @@
-<h1>Create a new boat:</h1>
-
-<%= form_for @boat do |b| %>
-	<%= b.label :Name %>
-	<%= b.text_field :name %>
-	<%= b.label :Container_Limit %>
-	<%= b.number_field :container_limit %>
-<% end %>
+<div class="logo_port"></div>
+	<div class="wrapper">
+		<div class="sales_lo">
+			<div class="wo_show_wrap">
+				<div class="bo_create_cont">
+					<div class="bo_create_head"></div>
+						<div class="boat_create_p">
+							<%= form_for @boat do |b| %>
+								<%= b.label :Name %>
+								<%= b.text_field :name %>
+								<br>
+								<br>
+								<%= b.label :Container_Limit %>
+								<%= b.number_field :container_limit %>
+							<% end %>
+						</div>	
+				</div>
+			</div>
+        			<video autoplay loop id="sales_videobkg" muted poster="">
+            		<source src="/assets/vids_home/boats_main.mp4">
+        			</video>
+	</div>
+</div>

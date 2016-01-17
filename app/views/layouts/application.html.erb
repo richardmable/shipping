@@ -11,21 +11,23 @@
 	<%= flash[:notice] if flash[:notice] %>
 	<%= flash[:alert] if flash[:alert] %>
 		<div class="navmenu_l">
-			<a href="/port_managers">Port Managers</a>
-			<a href="/salesmen">Salesmen</a>
-			<a href="/boats">Vessels</a>
+			<a href="/port_managers" id="menu_l">Port Managers</a>
+			<a href="/salesmen" id="menu_l">Salesmen</a>
+			<a href="/boats" id="menu_l">Vessels</a>
 					<% if @currentPortManager %>
-					<a href="/boats/new">Construct A Ship</a>
+					<a href="/boats/new" id="menu_l" style="display:inline;">Construct A Ship</a>
+					<% else %>
+					<a href="/boats/new" id="menu_l" style="display:none;">Construct A Ship</a>
 					<% end %>
-					<a href="/work_orders">Work Orders</a>
+					<a href="/work_orders" id="menu_l">Work Orders</a>
 					<% if @currentSalesman %>
-					<a href="/work_orders/new">New Work Order</a>
+					<a href="/work_orders/new" id="menu_l">New Work Order</a>
 					<% end %>
-					<a href="/containers">Containers</a>
+					<a href="/containers" id="menu_l">Containers</a>
 		</div>
 		<div class="navmenu_r">
-			<a href="/login">Log In</a>
-			<a href="/logout">Log Out</a>
+			<a href="/login" id="menu_l">Log In</a>
+			<a href="/logout" id="menu_l">Log Out</a>
 		</div>
 
 <%= yield %>

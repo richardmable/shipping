@@ -20,23 +20,28 @@ body {
 	align-items:center;
 }
 .navmenu_l {
-	left:0;
+	left:10%;
 	top: 1%;
-	width: 45%;
+	width: 95%;
 	height: 35px;
 	z-index: 9999;
 	text-align: center;
 	position: absolute;
+	text-transform: uppercase;
 }
 .navmenu_r {
 	right:0;
 	top: 1%;
-	width: 25%;
+	width: 15%;
 	height: 35px;
 	z-index: 9999;
 	text-align: center;
 	position: absolute;
 }
+#menu_l {
+	margin-right: 15px;
+}
+
 // ul li {
 // 	font-family: 'Raleway', sans-serif;
 // 	font-weight: 300;

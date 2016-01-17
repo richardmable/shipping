@@ -8,21 +8,50 @@
 			<div class="wo_show_wrap">
 				<div class="po_ind_left">
 					<div class="po_assign_head"></div>
-						<div class="wo_show_owo">
-							space for link to assign work order
-						</div>	
-						<div class="wo_show_owo">
-							space for link to assign work order
+						
+						
+						
+							<% WorkOrder.all.each do |x|%>
+							
+							<% if @currentPortManager.id == x.origin_port_manager_id  %> 
+
+							<div class="wo_show_owo">
+							ID #<%=link_to x.id, work_order_path(x.id)%>
+							<br>
+
+							Owner:<%=link_to x.name, work_order_path(x.id)%>
+							<br>
+
+							Destination:<% if x.destination_port_manager_id%>
+
+							<%=link_to PortManager.find_by_id(x.destination_port_manager_id).location, work_order_path(x.id)%>
+							<%end%>
+							<br>
+							Containers:<% if x.container_count%>
+							 <%=link_to x.container_count, work_order_path(x.id)%>
+							<%end%>
+
+
+							<br>
 						</div>
-						<div class="wo_show_owo">
-							space for link to assign work order
-						</div>
-						<div class="wo_show_owo">
-							space for link to assign work order
-						</div>
-						<div class="wo_show_owo">
-							space for link to assign work order
-						</div>
+						<%end%> 
+						
+						<%end%> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+						
+						
 				</div>
 				<div class="po_ind_right">
 				<div class="po_arrive_head"></div>

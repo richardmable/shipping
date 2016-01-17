@@ -25,8 +25,8 @@ module SalesmenHelper
 
 	def cargo_weight
 		[
-	      ['Freezer', 1],
-	      ['Regular', 2],
+	      ['Freezer', 2],
+	      ['Regular', 1],
 		]
 	end
 

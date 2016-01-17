@@ -61,7 +61,7 @@ td {
 .wo_submit {
 	width: 150px;
 	height: 40px;
-	margin-top: 66px;
+	margin-top: 39px;
 	margin-left: 270px;
 	font-family: 'Raleway', sans-serif;
 	font-weight: 400;
@@ -85,7 +85,7 @@ td {
 	left: 12%;
 	width: 500px;
 	height: 313px;
-	margin-top: 10px;
+	margin-top: 30px;
 	position: absolute;
 	border-style: solid;
     border-width: 1px;
@@ -101,7 +101,25 @@ td {
 	border-style: solid;
     border-width: 1px;
     border-color: rgb(255,255,255);
-	z-index: 900;
+	z-index: 23;
+}
+.wo_create_l {
+	position: absolute;
+	width: 500px;
+	height: 280px;
+	margin-top: 5px;
+	margin-left: 5px;
+	padding: 30px;
+	z-index: 24;
+	-webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+    -webkit-column-width: 250px;
+	-moz-column-width: 250px;
+    column-width: 250px;
+    -webkit-column-gap: 60px;
+    -moz-column-gap: 60px;
+    column-gap: 60px;
 }
 .wo_create_r {
 	width: 430px;
@@ -111,20 +129,10 @@ td {
 	padding: 30px;
 	background: rgb(255,255,255);
 }
-.wo_create_l {
-	position: absolute;
-	width: 430px;
-	height: 230px;
-	margin-top: 5px;
-	margin-left: 5px;
-	padding: 30px;
-	// background: rgb(255,255,255);
-	z-index: 2;
-}
 .wo_bkg {
 	position: absolute;
 	width: 490px;
-	height: 540px;
+	height: 240px;
 	margin-top: 5px;
 	margin-left: 5px;
 	// padding: 30px;

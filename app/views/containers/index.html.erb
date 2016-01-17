@@ -1,25 +1,24 @@
-<h1>Containers#index</h1>
+<!-- <h1>Containers#index</h1>
 <p>Find me in app/views/containers/index.html.erb</p>
+ -->
+ <div class="logo_in"></div>
+	<div class="wrapper">
+		<div class="sales_lo">
+			<div class="wo_show_wrap">
+				<div class="co_left">
+					<div class="co_head"></div> 
+					<!-- <div class="co_bkg"></div> -->
+						<div class="co_list">
+							<!-- div to be looped -->
+							<div class="co_show"></div>
 
-continer ID/ workorder/ weight/ cargo type/
-<% @containers.each do |x| %> 
-<%=x.id%>
-<%=link_to x.weight, boat_path(x.id)%> <%=x.cargo_type%> 
- <br>
-
-
-
-
-<%end%>
-
-
-
-<br>
-
-
-<% WorkOrder.all do |x|%>
-							
-							<%=  x.name %> ...port manager...
-						
-						
-						<%end%> 
+						</div>
+				</div>
+				<div class="co_right">
+				</div>
+			</div>
+        			<video autoplay loop id="sales_videobkg" muted poster="">
+            		<source src="/assets/vids_home/co_main.mp4" type="video/mp4">
+        			</video>
+	</div>
+</div>

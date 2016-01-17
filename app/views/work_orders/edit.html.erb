@@ -5,14 +5,50 @@
 			<div class="wo_show_wrap">
 				<div class="wo_show_left">
 					<div class="wo_head"></div>
-					<div class="wo_show_bkg"></div>
-					<!-- this needs to be swapped out with a turbolink code -->
-					<div class="woshow_savebutt">save</div>
-					<div class="wo_show">
-						<% @container.each do |w|%> 
-							<%= w.weight%> <%= w.cargo_type%>  <%= w.updated_at.strftime('%A, %B %d, %Y  %I:%M %p')%><br>
+					<div class="wo_show_bkg">
+						<%= form_for @workorder do |f| %>    
+						<h1>#<%=@workorder.id %></h1> <br>
+						Owner: <%=@workorder.name %> <br><br>
+						Description of Shippment: <%=@workorder.description %>
+						 <br><br>
 
-						<%end%>
+						 Containers in work order:  <%=@qty %>
+						 <br><br>
+
+				
+
+						Place Order on a boat to ship: <br>
+						<%= f.select :boat_id, boat_select_option, {include_blank: true}%>
+						<br><br><br>
+						Was this order delivered to detination?
+						<%= f.select :complete, [
+	      ['No', false],
+	      ['Yes, delivered for customer pickup.', true],
+		],  {include_blank: true}%>
+						<br><br>
+					
+												<!-- This will call the partial for the line item table -->
+							
+
+
+									
+
+								<!-- this loop is nested inside of the form and will give the different categories that an article may fall into. -->
+
+
+
+								<br>	
+								
+								
+							<%=f.submit :update, class: 'wo_submit' %>
+							<% end %>
+					
+					</div>
+					<!-- this needs to be swapped out with a turbolink code -->
+					<div class="woshow_savebutt"> </div>
+					
+					<div class="wo_show">
+						
 					</div>
 				</div>
 				<div class="wo_show_right">

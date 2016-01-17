@@ -140,7 +140,7 @@ Boat.create(name: "Orca", container_limit: 300, destination_port_manager_id: 6, 
 Boat.create(name: "Captayannis", container_limit: 100, destination_port_manager_id: 9, at_sea: false)
 Boat.create(name: "USS Arizona", container_limit: 100, destination_port_manager_id: 10, at_sea: false)
 Boat.create(name: "Foxhound", container_limit: 300, destination_port_manager_id: 8, at_sea: false)
-Boat.create(name: "Sdestination_port_manager_idivo ", container_limit: 50, destination_port_manager_id: 10, at_sea: false)
+Boat.create(name: "Sivo ", container_limit: 50, destination_port_manager_id: 10, at_sea: false)
 Boat.create(name: "Lusitania", container_limit: 50, destination_port_manager_id: 4, at_sea: false)
 Boat.create(name: "Sansinena", container_limit: 20, destination_port_manager_id: 3, at_sea: false)
 Boat.create(name: "Exxon Valdez", container_limit: 20, destination_port_manager_id: 2, at_sea: false)

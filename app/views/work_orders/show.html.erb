@@ -8,15 +8,48 @@
 			<div class="wo_show_wrap">
 				<div class="wo_show_left">
 					<div class="wo_head"></div>
-					<div class="wo_show_bkg"></div>
-					<!-- this needs to be swapped out with a turbolink code -->
-					<div class="woshow_editbutt">EDIT</div>
-					<div class="wo_show">
+					<div class="wo_show_bkg">
+
+						Owner:
+						<%=@workorder.name%>
+						<br>
+
+						Containers: 
+						<%=@workorder.container_count%>
+						<br>
+
+						Destination: 
+						<%=@workorder.destination_port_manager_id%>
+						<br>
+
+						Containers: 
+						<%=@workorder.container_count%>
+						<br>
+						<br>
+						<br>
+						<br>
+						Containers being shipped on order:<br>
+
 						<% @container.each do |w|%> 
-							<%= w.weight%> <%= w.cargo_type%>  <%= w.updated_at.strftime('%A, %B %d, %Y  %I:%M %p')%><br>
+						<%= w.id%>    
+						<%if w.weight == 1%>
+						Standard
+						<%else%>
+						Freezer
+						<%end%>
+						<br>
 
 
 						<%end%>
+					</div>
+					<!-- this needs to be swapped out with a turbolink code -->
+					<div class="woshow_editbutt">
+						<%=link_to "Edit", edit_work_order_path(@workorder.id)%>
+						
+
+					</div>
+					<div class="wo_show">
+						
 					</div>
 				</div>
 				<div class="wo_show_right">

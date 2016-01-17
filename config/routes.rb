@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy', as: :logout
   #set the root page to be the login page
   root 'sessions#index'
+  get 'test' => 'port_managers#test'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

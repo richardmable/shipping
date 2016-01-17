@@ -45,8 +45,8 @@ body {
 	height: 100%;
 	overflow:hidden;
 	z-index: 5;
-	transition: 1s;
 	text-align: center;
+	transition: 0.6s;
 }
 .left_home:hover {
 	width:65%;
@@ -55,6 +55,27 @@ body {
 	z-index:100;
 	transition-delay: 1s;
 }
+.right_home{
+	position: fixed;
+	top: 0;
+	right: 0px;
+	width:50%;
+	height: 100%;
+	overflow:hidden;
+	z-index: 5;
+	transition: 0.6s;
+}
+.right_home:hover {
+	width:65%;
+	height: 100%;
+	z-index:5;
+	transition-delay: 1s;
+}
+
+
+
+
+
 #lvideo-background {
   position: absolute;
   left: 0;
@@ -97,22 +118,6 @@ body {
 	color: rgb(255, 255, 255);
 }
 
-.right_home{
-	position: fixed;
-	top: 0;
-	right: 0px;
-	width:50%;
-	height: 100%;
-	overflow:hidden;
-	z-index: 5;
-	transition: 1s;
-}
-.right_home:hover {
-	width:65%;
-	height: 100%;
-	z-index:5;
-	transition-delay: 1s;
-}
 #rvideo-background {
   	position: absolute;
   	right: 0;

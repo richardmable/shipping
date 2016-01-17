@@ -2,7 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+.logo_sales {
+	// display: flex;
+	z-index: 5;
+	width: 200px;
+	height: 200px;
+	background-image: image-url('logo_home.svg');
+	background-repeat:no-repeat;
+	background-position: center;
+	position: absolute;
+    top: -40px;
+    left: 0.1%;
+}
 .wrapper {
     width: 100vw;
     height: 100vh;
@@ -19,18 +30,6 @@
 	overflow:hidden;
 	z-index: 1;
 }
-.logo_sales {
-	// display: flex;
-	z-index: 9999;
-	width: 200px;
-	height: 200px;
-	background-image: image-url('logo_home.svg');
-	background-repeat:no-repeat;
-	background-position: center;
-	position: absolute;
-    top: -40px;
-    right: 2.5%;
-}
 .co_name {
 	width: 343px;
 	height: 20px;
@@ -46,7 +45,7 @@ td {
 .wo_wrap {
 	left:0;
 	position: absolute;
-	top: 15%;
+	top: 25%;
 	width: 100%;
 	height: 375px;
 	background: rgba(255,255,255,0.4);

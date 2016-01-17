@@ -1,23 +1,4 @@
 
-<h1>Boats#index</h1>
-<p>Find me in app/views/boats/index.html.erb</p>
-
-
-
-boat id/ name/ at_sea/ destination/ container limti
-
-<% @boats.each do |x| %> 
-
-<%=link_to x.id, boat_path(x.id)%> <%=x.name%> 
-
-
-
-
-<%=x.destination_port_manager_id%> <%=x.container_limit%><br>
-
-<%end%>
-
-
 
 
 <!-- <h1>All the Boats:</h1> -->
@@ -29,36 +10,33 @@ boat id/ name/ at_sea/ destination/ container limti
 				<div class="bo_ind_left">
 					<div class="bo_inport_head"></div>
 						<div class="boat_show_ip">
-							<%= @currentPortManager.id %> <%= @currentPortManager.location %>
-
-
-							<br>
-							<% @boats.each do |x| %> 
-							<%if @currentPortManager.id == x.destination_port_manager_id && x.at_sea == false %> 
-
-							<%=link_to x.name, boat_path(x.id)%> is in bound with a capacity of 
 
 
 
+	
+						<% @boats.each do |x| %> 
 
-							<%=x.container_limit%> containers.<br>
-							<%else%>
+						<!-- This will loop the whole div for any ship that is due in (destination set and at sea) -->
+							
 
-							<%end%>
-							<%end%>
-						</div>	
-						<div class="boat_show_ip">
-							space for link to show boat in port
+
+								<%if @currentPortManager.id == x.destination_port_manager_id && x.at_sea == false %> 
+
+								<%=link_to x.name, boat_path(x.id)%> with
+
+
+
+
+								<%=x.container_limit%> containers.<br>
+								
+
+								<%end%>
+
+							
+						<%end%>
 						</div>
-						<div class="boat_show_ip">
-							space for link to show boat in port
-						</div>
-						<div class="boat_show_ip">
-							space for link to show boat in port
-						</div>
-						<div class="boat_show_ip">
-							space for link to show boat in port
-						</div>
+
+						
 				</div>
 				<div class="bo_ind_right">
 				<div class="bo_as_head"></div>

@@ -4,7 +4,7 @@ class BoatsController < ApplicationController
 
   def index
     @boats = Boat.all
-    
+
   end
 
   def new
@@ -13,8 +13,8 @@ class BoatsController < ApplicationController
 
   def show
       @boat = Boat.find(params[:id])
-      @workorder = BoatWorkOrder.all
-
+      @workorder = BoatWorkOrder.where(boat_id: params[:id])
+      @container = Container.where(boat_id: params[:id])
 
   end
 

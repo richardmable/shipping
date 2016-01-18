@@ -148,5 +148,30 @@ Boat.create(name: "Sea Lion", container_limit: 50, destination_port_manager_id: 
 Boat.create(name: "El Faro", container_limit: 300, destination_port_manager_id: 9, at_sea: false)
 Boat.create(name: "Flinterstar", container_limit: 300, destination_port_manager_id: 10, at_sea: false)
 
+PortManagerBoat.create(port_manager_id: 1, boat_id: 1)
+PortManagerBoat.create(port_manager_id: 2, boat_id: 2)
+PortManagerBoat.create(port_manager_id: 3, boat_id: 3)
+PortManagerBoat.create(port_manager_id: 4, boat_id: 4)
+PortManagerBoat.create(port_manager_id: 5, boat_id: 5)
+PortManagerBoat.create(port_manager_id: 6, boat_id: 6)
+PortManagerBoat.create(port_manager_id: 7, boat_id: 7)
+PortManagerBoat.create(port_manager_id: 8, boat_id: 8)
+PortManagerBoat.create(port_manager_id: 9, boat_id: 9)
+PortManagerBoat.create(port_manager_id: 10, boat_id: 10)
+PortManagerBoat.create(port_manager_id: 1, boat_id: 11)
+PortManagerBoat.create(port_manager_id: 2, boat_id: 12)
+PortManagerBoat.create(port_manager_id: 3, boat_id: 13)
+PortManagerBoat.create(port_manager_id: 4, boat_id: 14)
+PortManagerBoat.create(port_manager_id: 5, boat_id: 15)
+PortManagerBoat.create(port_manager_id: 6, boat_id: 16)
+PortManagerBoat.create(port_manager_id: 7, boat_id: 17)
+PortManagerBoat.create(port_manager_id: 8, boat_id: 18)
+PortManagerBoat.create(port_manager_id: 9, boat_id: 19)
+PortManagerBoat.create(port_manager_id: 10, boat_id: 20)
+PortManagerBoat.create(port_manager_id: 1, boat_id: 21)
+PortManagerBoat.create(port_manager_id: 2, boat_id: 22)
+PortManagerBoat.create(port_manager_id: 3, boat_id: 23)
+
+
 
 

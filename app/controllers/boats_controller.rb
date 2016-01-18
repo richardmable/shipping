@@ -29,6 +29,8 @@ class BoatsController < ApplicationController
     #set the BID to the ID of the newly created both
     #it should always be the last boat created in the database
     boat_owner_params[:boat_id] = Boat.last.id
+    puts "********************************************************************************"
+    puts boat_owner_params
     #create the entry in the join table for assigning the boat to an owner
     PortManagerBoat.create(boat_owner_params)
       #if the boat is saved, display messages, redirect to the boats index
@@ -68,7 +70,7 @@ class BoatsController < ApplicationController
   private
 
   def boat_owner_params
-    params.require.permit(:portmanagerboat).permit(:port_manager_id, :boat_id)
+    params.require(:boat).permit(:port_manager_id, :boat_id)
   end
 
   def boat_params

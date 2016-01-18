@@ -1,7 +1,6 @@
 class WorkOrdersController < ApplicationController
   def index
     @WorkOrders = WorkOrder.all
- 
   end
 
   def show
@@ -10,29 +9,26 @@ class WorkOrdersController < ApplicationController
 
 end
 
-def create
-    #check to see if the cargo description is at least 50 chars
-    #uses a regexp where \. selects every character and .count then counts them
 
-    # descriptionCount = wo_params[:description].count "/\./"
-    # if  descriptionCount.to_i < 50 
-    #   flash[:alert] = "The cargo description needs to be at least 50 characters"
-    #   redirect_to :controller => 'salesmen', :action => 'index'
-    # else
-     @workorder = WorkOrder.create(wo_params)
+  def create
+      # check to see if the cargo description is at least 50 chars
+      descriptionCount = wo_params[:description].length
+      if  descriptionCount.to_i < 50 
+        flash[:alert] = "The cargo description needs to be at least 50 characters"
+        redirect_to :controller => 'salesmen', :action => 'index'
+      else
+       @workorder = WorkOrder.create(wo_params)
+        c = wo_params[:containers_attributes]
+        c.each do |f|
+          puts f.inspect
+          q =  f[1][:quantity]
+            for i in 0..q.to_i
+              @workorder.containers.push Container.create(cargo_type: f[1][:cargo_type], weight: f[1][:weight] )
+            end
 
-      puts "************************"
-      puts c = wo_params[:containers_attributes]
-
-      c.each do |f|
-        puts f.inspect
-        q =  f[1][:quantity]
-        for i in 0..q.to_i
-          puts "CONTAINER CREATING"
-          @workorder.containers.push Container.create(cargo_type: f[1][:cargo_type], weight: f[1][:weight] )
         end
 
-      # end
+      end
       redirect_to work_orders_path
     end
   
@@ -48,13 +44,23 @@ end
   @qty = Container.where(work_order_id: params[:id]).count
 
   end
-def update
-  wo = WorkOrder.find_by_id(params[:id])
-wo.update(wo_updates)
 
 
-BoatWorkOrder.create(boat_id: WorkOrder.find_by_id(params[:id]).boat_id, work_order_id: params[:id])
-redirect_to work_orders_path
+  def update
+    #find the work order
+    wo = WorkOrder.find_by_id(params[:id])
+    #update the work order with the params
+    wo.update(wo_updates)
+    #create the entry in the join table that assigns the work order to the boat
+    bow = BoatWorkOrder.create(boat_id: WorkOrder.find(params[:id]).boat_id, work_order_id: params[:id])
+    #flash message if they both work
+    if wo.save && bow.save
+      flash[:notice] = "Boat was assigned to work order"
+    else
+      flash[:alert] = "There was a problem assigning the boat to the work order"
+    end
+    redirect_to work_orders_path
+
   end
 
 

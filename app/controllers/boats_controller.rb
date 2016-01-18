@@ -12,6 +12,7 @@ class BoatsController < ApplicationController
   end
 
   def show
+    @boats = Boat.all
       @boat = Boat.find(params[:id])
       @workorder = BoatWorkOrder.where(boat_id: params[:id])
       @container = Container.where(boat_id: params[:id])

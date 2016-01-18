@@ -35,7 +35,30 @@ body {
     top: -60px;
     left: 39.5%;
 }
-
+.logo_in_sm {
+	/*display: flex;*/
+	z-index: 9999;
+	width: 180px;
+	height: 180px;
+	background-image: image-url('logo_home.svg');
+	background-repeat:no-repeat;
+	background-position: center;
+	position: absolute;
+    top: -30px;
+    left: 0px;
+}
+.logo_in_pm {
+	/*display: flex;*/
+	z-index: 9999;
+	width: 180px;
+	height: 180px;
+	background-image: image-url('logo_home.svg');
+	background-repeat:no-repeat;
+	background-position: center;
+	position: absolute;
+    top: -30px;
+    right: 0px;
+}
 
 .left_home {
 	position: fixed;

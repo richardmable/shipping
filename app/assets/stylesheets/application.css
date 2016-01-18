@@ -34,32 +34,50 @@
 	color: rgb(255, 255, 255);
 }
 
-
-.navmenu_l {
+.navmenu_sm {
 	left:0;
 	top: 1%;
 	width: 68%;
 	height: 35px;
-	z-index: 9998;
+	z-index: 900;
 	text-align: left;
 	position: absolute;
 	margin-left: 12%;
 	display:inline;
+	text-transform: uppercase;
+	letter-spacing: 1px;
 	text-decoration: none;
+	text-transform: uppercase;
 }
-.navmenu_r {
-	right:0;
+.navmenu_pm {
+	right: 120px;
 	top: 1%;
-	width: 12%;
+	width: 68%;
 	height: 35px;
-	z-index: 9998;
+	z-index: 900;
 	text-align: right;
 	position: absolute;
 	margin-right: 2%;
 	display:inline;
 	text-decoration: none;
+	text-transform: uppercase;
 }
-.navmenu_l a:link{
+.navmenu_lio {
+	right:0;
+	bottom: 1%;
+	width: 12%;
+	height: 35px;
+	z-index: 900;
+	text-align: right;
+	position: absolute;
+	margin-right: 2%;
+	display:inline;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+
+.navmenu_sm,.navmenu_pm a:link{
 	font-family: 'Raleway', sans-serif;
 	font-weight: 500;
 	font-size: 14px;
@@ -68,7 +86,7 @@
 	color: rgb(255, 255, 255);
 	transition: 0.6s ease;
 }
-.navmenu_l a:active{
+.navmenu_sm,.navmenu_pm a:active{
 	font-family: 'Raleway', sans-serif;
 	font-weight: 500;
 	font-size: 14px;
@@ -77,7 +95,7 @@
 	color: rgb(255, 255, 255);
 	transition: 0.6s ease;
 }
-.navmenu_l a:visited{
+.navmenu_sm,.navmenu_pm a:visited{
 	font-family: 'Raleway', sans-serif;
 	font-weight: 500;
 	font-size: 14px;
@@ -86,7 +104,7 @@
 	color: rgb(255, 255, 255);
 	transition: 0.6s ease;
 }
-.navmenu_l a:hover {
+.navmenu_sm,.navmenu_pm a:hover {
 	font-family: 'Raleway', sans-serif;
 	font-weight: 500;
 	font-size: 14px;
@@ -94,7 +112,8 @@
     text-decoration: none;
 	color: rgb(21, 189, 27);
 }
-.navmenu_r a:link{
+
+.navmenu_lio a:link{
 	font-family: 'Raleway', sans-serif;
 	font-weight: 500;
 	font-size: 14px;
@@ -104,7 +123,7 @@
 	color: rgb(255, 255, 255);
 	transition: 0.6s ease;
 }
-.navmenu_r a:active{
+.navmenu_lio a:active{
 	font-family: 'Raleway', sans-serif;
 	font-weight: 500;
 	font-size: 14px;
@@ -113,7 +132,7 @@
 	color: rgb(255, 255, 255);
 	transition: 0.6s ease;
 }
-.navmenu_r a:visited{
+.navmenu_lio a:visited{
 	font-family: 'Raleway', sans-serif;
 	font-weight: 500;
 	font-size: 14px;
@@ -122,7 +141,7 @@
 	color: rgb(255, 255, 255);
 	transition: 0.6s ease;
 }
-.navmenu_r a:hover {
+.navmenu_lio a:hover {
 	font-family: 'Raleway', sans-serif;
 	font-weight: 500;
 	font-size: 14px;

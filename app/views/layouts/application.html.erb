@@ -13,9 +13,8 @@
 		<p><%= flash[:alert] if flash[:alert] %></p>
 	</div>
 		<% if @currentSalesman %>
-		<div class="navmenu_l">
-			<a href="/port_managers" id="menu_l">Port Managers</a>
-			<a href="/salesmen" id="menu_l">Salesmen</a>
+		<div class="navmenu_sm">
+			<a href="/salesmen" id="menu_l">main</a>
 			<a href="/boats" id="menu_l">Vessels</a>
 			<a href="/work_orders" id="menu_l">Work Orders</a>
 			<a href="/work_orders/new" id="menu_l">New Work Order</a>
@@ -23,9 +22,8 @@
 		</div>
 		<% end %>
 		<% if @currentPortManager %>
-		<div class="navmenu_l">
-			<a href="/port_managers" id="menu_l">Port Managers</a>
-			<a href="/salesmen" id="menu_l">Salesmen</a>
+		<div class="navmenu_pm">
+			<a href="/port_managers" id="menu_l">main</a>
 			<a href="/boats" id="menu_l">Vessels</a>
 			<a href="/boats/new" id="menu_l">Construct A Ship</a>
 			<a href="/work_orders" id="menu_l">Work Orders</a>
@@ -33,7 +31,7 @@
 		</div>
 		<% end %>
 
-		<div class="navmenu_r">
+		<div class="navmenu_lio">
 		<% if @currentPortManager || @currentSalesman %>
 			<%= link_to("Log Out", '/logout') %>
 		<% else %>

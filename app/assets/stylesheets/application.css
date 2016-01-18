@@ -17,8 +17,8 @@
 .flashMessage {
 	display: none;
 	z-index: 9999;
-	right: 5%;
-	top: 5%;
+	right: 37.5%;
+	top: 7%;
 	position: absolute;
 	border-radius: 8px;
 	background-color: rgba(19, 150, 255, 0.7);

@@ -13,7 +13,7 @@ class WorkOrdersController < ApplicationController
   def create
       # check to see if the cargo description is at least 50 chars
       # uses a regexp where \. selects every character and .count then counts them
-      descriptionCount = wo_params[:description].count "/\./"
+      descriptionCount = wo_params[:description].length
       puts "HERES THE FIRST DESCRIPTION COUNT"
       puts descriptionCount
       if  descriptionCount.to_i < 50 

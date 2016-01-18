@@ -13,6 +13,7 @@
 		<p><%= flash[:alert] if flash[:alert] %></p>
 	</div>
 		<% if @currentSalesman %>
+		<div class="logo_in_sm"></div>
 		<div class="navmenu_sm">
 			<a href="/salesmen" id="menu_l">main</a>
 			<a href="/boats" id="menu_l">Vessels</a>
@@ -22,6 +23,7 @@
 		</div>
 		<% end %>
 		<% if @currentPortManager %>
+		<div class="logo_in_pm"></div>
 		<div class="navmenu_pm">
 			<a href="/port_managers" id="menu_l">main</a>
 			<a href="/boats" id="menu_l">Vessels</a>

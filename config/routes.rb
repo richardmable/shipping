@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   resources :port_managers, :salesmen, :work_orders, :boats, :containers
+  #set the root page to be the login page
+  root 'sessions#index'
   #This also allows us to write a login_url
   get 'login' => 'sessions#index', as: :login
   #when submitting the login form, invoke the sessions#create action which should sign the user in
@@ -8,8 +10,7 @@ Rails.application.routes.draw do
   #allows us to sign out a user, and sets a logout_url
   get 'logout' => 'sessions#destroy', as: :logout
   #set the root page to be the login page
-  root 'sessions#index'
-  get 'test' => 'port_managers#test'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

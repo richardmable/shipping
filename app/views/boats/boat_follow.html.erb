@@ -2,17 +2,43 @@
 <!-- A new page should be added where users can see what ships they're currently following -->
 
 <!-- go through each boat's information and print to the page -->
-<% @boats.each do |b| %>
-	<button>Follow this boat</button>
-	<p>Name: <%= b.name %></p>
-	<p>Container Limit: <%= b.container_limit %></p>
-	<p>Last updated at: <%= b.updated_at %></p>
-	<% if b.at_sea == true %>
-		<p>This boat is at sea currently!</p>
-	<% else %>
-		<p>This port is in port.</p>
-	<% end %>
-	<% if b.destination_port_manager_id %>
-		<p>This boat is going to: <%= b.destination_port_manager_id %></p>
-	<% end %>
-<% end %>
+	<div class="wrapper">
+		<div class="sales_lo">
+			<!-- <div class="saleshl"><h1>sales team<h1></div> -->
+			<div class="bo_wrap">
+				<div class="bo_foll_left">
+					<div class="bo_foll_head"></div>
+					<div class="bo_foll_bkg"></div>
+					<div class="bo_foll_l">
+						<% @boats.each do |b| %>
+							<p>Name: <%= b.name %></p>
+							<p>Container Limit: <%= b.container_limit %></p>
+							<p>Last updated at: <%= b.updated_at %></p>
+							<% if b.at_sea == true %>
+								<p>This boat is at sea currently!</p>
+							<% else %>
+								<p>This port is in port.</p>
+							<% end %>
+							<% if b.destination_port_manager_id %>
+								<p>This boat is going to: <%= b.destination_port_manager_id %></p>
+								<button>Follow this boat</button>
+								<br><br><br>
+							<% end %>
+						<% end %>
+					</div>
+				</div>
+				<div class="bo_foll_right">
+					<div class="bo_folling_head"></div>
+					<div class="bo_foll_bkg"></div>
+					<div class="bo_foll_r">
+						put the code to see who your are following<br>
+						in here. when they click it should use the<br>
+						turbolinks to reload the page
+					</div>
+				</div>
+			</div>
+        			<video autoplay loop id="sales_videobkg" muted poster="">
+            		<source src="/assets/vids_home/boats_home2.mp4">
+        			</video>
+	</div>
+</div>

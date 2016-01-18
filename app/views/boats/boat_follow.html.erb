@@ -1,5 +1,9 @@
+<!-- Using Rails UJS, allow users to asynchronously "follow" other ships. This means they should be able to click a "follow" button and have the "following" recorded in the database. -->
+<!-- A new page should be added where users can see what ships they're currently following -->
+
 <!-- go through each boat's information and print to the page -->
 <% @boats.each do |b| %>
+	<button>Follow this boat</button>
 	<p>Name: <%= b.name %></p>
 	<p>Container Limit: <%= b.container_limit %></p>
 	<p>Last updated at: <%= b.updated_at %></p>

@@ -40,7 +40,9 @@ def edit
     @boats = Boat.all
   end
 
-
+  def follow
+    
+  end
 
   def destroy
   end

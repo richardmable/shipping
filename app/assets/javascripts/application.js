@@ -59,27 +59,21 @@ $(function(){
 });
 
 
-$(function(){
+$(document).on("page:update", function(){
     $(".left_home").hover(function(){
       $(this).find(".salesin").delay(1200).fadeIn(800);
       $('.logo_home').delay(700).animate({left: '14.5%'}, 400);
-    }
-    ,function(){
-    $(this).find(".salesin").fadeOut(200);
-    $('.logo_home').animate({left: '39.5%'}, 300);
-    }
-    );        
-});
-$(function(){
+    },function(){
+      $(this).find(".salesin").fadeOut(200);
+      $('.logo_home').animate({left: '39.5%'}, 300);
+      });        
     $(".right_home").hover(function(){
       $(this).find(".portin").delay(1200).fadeIn(800);
       $('.logo_home').delay(700).animate({left: '64.7%'}, 400);
-    }
-    ,function(){
-    $(this).find(".portin").fadeOut(200);
-    $('.logo_home').animate({left: '39.5%'}, 300);
-    }
-    );        
+    },function(){
+      $(this).find(".portin").fadeOut(200);
+      $('.logo_home').animate({left: '39.5%'}, 300);
+      });        
 });
 
 

@@ -23,6 +23,24 @@ class BoatsController < ApplicationController
 
   end
 
+def edit
+    @boat = Boat.find_by_id(params[:id])
+    @location = @boat.destination_port_manager_id
+  end
+
+  def update
+    boat = Boat.find_by_id(params[:id])
+    boat.update(info)
+    boat.save
+
+  end
+
+
   def destroy
   end
 end
+
+private
+def info
+    params.require(:boat).permit(:destination_port_manager, :at_sea)
+  end

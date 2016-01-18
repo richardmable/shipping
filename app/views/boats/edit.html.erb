@@ -1,0 +1,45 @@
+<br>
+
+<%= form_for @boat do |f| %>    
+						<h1>#<%=@boat.id %> <%=@boat.name %></h1> <br>
+						 Curent location: 
+						 <% if @boat.at_sea == false %>
+						Port.
+
+						 <%else%>
+						 Sea.
+
+
+						 <%end%>
+
+						 <%=location(@boat.id)%>
+
+
+						  
+						
+						 <br><br>
+
+						 Cargo capacity:  <%= @boat.container_limit%> containers.
+						 <br><br>
+
+				
+
+						Set <%=@boat.name %>'s new destination: <br>
+						<%= f.select :destination_port_manager_id, ports_select_option, {include_blank: true}%>
+						<br><br><br>
+						Set status of ship.
+						<%= f.select :at_sea, [
+	      ['In port.', false],
+	      ['Sailing, at sea.', true],
+		],  {include_blank: true}%>
+						<br><br>
+					
+												
+
+
+								<br>	
+								
+								
+							<%=f.submit :update, class: 'wo_submit' %>
+							<% end %>
+					

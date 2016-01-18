@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+	
+
 	#sessions index is our landing page
 	def index
 		#don't use the application view layout on this landing page

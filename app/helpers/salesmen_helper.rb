@@ -29,7 +29,14 @@ module SalesmenHelper
 	      ['Regular', 1],
 		]
 	end
+	
+def location(x)
 
+		y = PortManager.find_by_id(x)
+		y.location
+	
+
+	end
 
 
 end

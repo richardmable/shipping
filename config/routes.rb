@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :port_managers, :salesmen, :work_orders, :boats, :containers
   #set the root page to be the login page
   root 'sessions#index'
+  #access the custom view and action boat follow
+  get 'boat_follow' => 'boats#boat_follow', as: :boat_follow
   #This also allows us to write a login_url
   get 'login' => 'sessions#index', as: :login
   #when submitting the login form, invoke the sessions#create action which should sign the user in

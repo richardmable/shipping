@@ -1,10 +1,8 @@
-<!-- <h1>All the Boats:</h1> -->
-
 <div class="logo_in_pm"></div>
 	<div class="wrapper">
 		<div class="sales_lo">
 			<div class="wo_show_wrap">
-				<div class="bo_ind_left">
+				<div class="bo_ind_left"> 
 					<div class="bo_inport_head"></div> 
 							<% @boats.each do |x| %>
 							<!-- This will loop the whole div for any ship that is due in (destination set and at sea) -->
@@ -18,27 +16,30 @@
 								<% end %>
 							<%end%>	
 				</div>
+
+
 				<div class="bo_ind_right">
 				<div class="bo_as_head"></div>
+				<% @boats.each do |x| %>
+							<!-- This will loop the whole div for any ship that is due in (destination set and at sea) -->
+								<% if @currentPortManager %>
+								    <%if @currentPortManager.id == x.destination_port_manager_id && x.at_sea == true %> 
+					
+
+
+
+
 					<div class="boat_show_as">
-						space for link to show boat to arrive
+						<%=link_to x.name, boat_path(x.id), :class => 'bo_name' %> with
+									    <%=x.container_limit%> containers.
 					</div>	
-					<div class="boat_show_as">
-						space for link to show boat to arrive
-					</div>
-					<div class="boat_show_as">
-						space for link to show boat to arrive
-					</div>
-					<div class="boat_show_as">
-						space for link to show boat to arrive
-					</div>
-					<div class="boat_show_as">
-						space for link to show boat to arrive
-					</div>
-				</div>
+					 <%end%>
+								<% end %>
+							<%end%>
+					
 			</div>
-        			<video autoplay loop id="sales_videobkg" muted poster="">
-            		<source src="/assets/vids_home/boats_main.mp4">
-        			</video>
+		<video autoplay loop id="sales_videobkg" muted poster="">
+			<source src="/assets/vids_home/boats_main.mp4">
+		</video>
 	</div>
 </div>

@@ -17,7 +17,7 @@ class Salesman < ActiveRecord::Base
 	#check if there is already a salesman for that territory
 	validates_uniqueness_of :territory
 	#check if there is already an email in the Salesmen table
-	validates_uniqueness_of :email
+	validates_uniqueness_of :email, uniqueness: { case_sensitive: false }
 	#check for a valid email using the validates_format_of_email gem
 	validates :email, :email_format => { :message => 'Are you sure you entered a valid email address?' }
 	#run the unique email method to see if it's anywhere in the database

@@ -1,3 +1,4 @@
+
 <div class="logo_in_pm"></div>
 	<div class="wrapper">
 		<div class="sales_lo">
@@ -6,12 +7,21 @@
 					<div class="bo_detail_head"></div>
 					<div class="boat_detail_ip">
 					<!-- boat id/ name/ at_sea/ destination/ container limit -->
-					<%= @boat.name%> is able to haul <%= @boat.container_limit%> containers<br>
-						<br>
-						Current containers loaded: <br>
+					<h1>#<%= @boat.id%> <%= @boat.name%></h1> <%=link_to "Update Vessel", edit_boat_path(@boat.id)%> <br><br>
 
-					<!-- just placeholder for the time being... will be deleted when formatted -->
-					<strong>Containter_ID...Container_type...Owner...Port_of_Origin</strong>
+
+					Capacity: <%= @boat.container_limit%> containers<br>
+						<br>
+						Current containers loaded: <br><br>
+
+						Current location:
+						<%if @boat.at_sea = true%>
+						At sea, destined for <%=location(@boat.id)%>.
+						<%end%>
+						<%if @boat.at_sea = false%>
+						At port in <%=location(@boat.id)%>.
+						<%end%>
+
 
 					<br>
 
@@ -37,10 +47,17 @@
 				</div>
 				<div class="bo_detail_right">
 					<div class="bo_inport_head"></div> 
-						<div class="boat_show_ip">
-							pull in bo_ind_left from index
-							@boats.each throws error
-						</div>	
+						<% @boats.each do |x| %>
+							<!-- This will loop the whole div for any ship that is due in (destination set and at sea) -->
+								<% if @currentPortManager %>
+								    <%if @currentPortManager.id == x.destination_port_manager_id && x.at_sea == false %> 
+									    <div class="boat_show_ip">
+									    <%=link_to x.name, boat_path(x.id), :class => 'bo_name' %> with
+									    <%=x.container_limit%> containers.
+									    </div>
+								    <%end%>
+								<% end %>
+							<%end%>	
 				</div>
 			</div>
         			<video autoplay loop id="sales_videobkg" muted poster="">
@@ -48,3 +65,4 @@
         			</video>
 	</div>
 </div>
+

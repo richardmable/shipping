@@ -12,6 +12,7 @@ class BoatsController < ApplicationController
   end
 
   def show
+    @boats = Boat.all
       @boat = Boat.find(params[:id])
       @workorder = BoatWorkOrder.where(boat_id: params[:id])
       @container = Container.where(boat_id: params[:id])
@@ -23,6 +24,24 @@ class BoatsController < ApplicationController
 
   end
 
+def edit
+    @boat = Boat.find_by_id(params[:id])
+    @location = @boat.destination_port_manager_id
+  end
+
+  def update
+    boat = Boat.find_by_id(params[:id])
+    boat.update(info)
+    boat.save
+
+  end
+
+
   def destroy
   end
 end
+
+private
+def info
+    params.require(:boat).permit(:destination_port_manager, :at_sea)
+  end

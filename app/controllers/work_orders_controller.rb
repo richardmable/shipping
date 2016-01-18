@@ -16,17 +16,22 @@ class WorkOrdersController < ApplicationController
         flash[:alert] = "The cargo description needs to be at least 50 characters"
         redirect_to :controller => 'salesmen', :action => 'index'
       else
-       @workorder = WorkOrder.create(wo_params)
-        c = wo_params[:containers_attributes]
-        c.each do |f|
-          puts f.inspect
-          q =  f[1][:quantity]
-            for i in 0..q.to_i
-              @workorder.containers.push Container.create(cargo_type: f[1][:cargo_type], weight: f[1][:weight] )
-            end
-
+        shipmentCost = (wo_params[:containers_attributes[:quantity]] * (wo_params[:destination_port_manager_id] + wo_params[:origin_port_manager_id])) * 100
+        if shipmentCost < 1000
+          flash[:alert] = "The Work Order needs to cost at least $1,000. Ship more stuff!"
+          redirect_to :controller => 'salesmen', :action => 'index'
+        else
+          wo_params[:cost] = shipmentCost
+          @workorder = WorkOrder.create(wo_params)
+          c = wo_params[:containers_attributes]
+          c.each do |f|
+            puts f.inspect
+            q =  f[1][:quantity]
+              for i in 0..q.to_i
+                @workorder.containers.push Container.create(cargo_type: f[1][:cargo_type], weight: f[1][:weight] )
+              end
+          end
         end
-
       end
       redirect_to work_orders_path
   end
@@ -59,8 +64,6 @@ class WorkOrdersController < ApplicationController
 
   end
 
-
-
   def new
   end
 
@@ -68,7 +71,7 @@ class WorkOrdersController < ApplicationController
   private
 
 def wo_params
-    params.require(:work_order).permit(:name, :description, :destination_port_manager_id, :origin_port_manager_id, :salesman_id, containers_attributes: [ :quantity, :cargo_type, :weight])
+    params.require(:work_order).permit(:name, :cost, :description, :destination_port_manager_id, :origin_port_manager_id, :salesman_id, containers_attributes: [ :quantity, :cargo_type, :weight])
   end
 
 def wo_updates
@@ -78,8 +81,6 @@ def wo_updates
 def boat
     params.require(:work_order).permit(:boat_id)
   end
-
-
 
   def container
     params.require(:work_order).permit(container: [])

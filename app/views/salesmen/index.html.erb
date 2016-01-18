@@ -1,7 +1,3 @@
-
-<!-- <h1>Salesmen#index</h1>
-<p>Find me in app/views/salesmen/index.html.erb</p> -->
-<div class="logo_in_sm"></div>
 	<div class="wrapper">
 		<div class="sales_lo">
 			<!-- <div class="saleshl"><h1>sales team<h1></div> -->
@@ -15,7 +11,7 @@
 						<%=f.text_field :name, class: 'co_name' %> <br><br>
 						<%=f.label "Description of shipment" %> 
 						<br>
-						<%=f.text_area(:description, cols: 68, rows: 7)%>  <br><br>
+						<%=f.text_area(:description, cols: 45, rows: 7)%>  <br><br>
 
 						<!-- This needs to call the current sales rep -->
 						<%=f.hidden_field :salesman_id, :value => @currentSalesman%>

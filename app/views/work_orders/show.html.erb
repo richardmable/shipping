@@ -1,15 +1,10 @@
-<!-- <h1>WorkOrders#show</h1>
-<p>Find me in app/views/work_orders/show.html.erb</p> -->
-
-<div class="logo_sales"></div>
-	<div class="wrapper">
+<div class="wrapper">
 		<div class="sales_lo">
 			<div class="wo_show_wrap">
 				<div class="wo_show_left">
 					<div class="wo_head"></div>
-
-					<div class="wo_show_bkg">
-
+					<!-- <div class="wo_show_bkg"></div> -->
+					<div class="wo_detail">
 						Owner:
 						<%=@workorder.name%>
 						<br><br>
@@ -27,8 +22,7 @@
 						<br>
 						<br>
 						<br>
-						<br>
-						Containers being shipped on order:<br>
+						Containers being shipped on order:<br><br>
 
 						<% @container.each do |w|%> 
 						<%= w.id%>    

@@ -1,2 +1,37 @@
-<h1>WorkOrders#new</h1>
-<p>Find me in app/views/work_orders/new.html.erb</p>
+<div class="wrapper">
+		<div class="sales_lo">
+			<!-- <div class="saleshl"><h1>sales team<h1></div> -->
+			<div class="wo_show_wrap">
+				<div class="wo_show_left">
+					<div class="wo_open_head"></div>
+							<% @WorkOrders.each do |x| %> 
+							<div class="wo_show_owo">
+							<%=link_to x.id, work_order_path(x.id)%> <%=x.name%> <%=x.origin_port_manager_id%> <%=x.destination_port_manager_id%> <%=link_to x.description, work_order_path(x.id)%><br>
+							</div>
+							<%end%>
+				</div>
+				<div class="wo_show_right">
+				<div class="wo_closed_head"></div>
+					<div class="wo_show_owo">
+						space for link to closed work order
+					</div>	
+					<div class="wo_show_owo">
+						space for link to closed work order
+					</div>
+					<div class="wo_show_owo">
+						space for link to closed work order
+					</div>
+					<div class="wo_show_owo">
+						space for link to closed work order
+					</div>
+					<div class="wo_show_owo">
+						space for link to closed work order
+					</div>
+				</div>
+			</div>
+        			<video autoplay loop id="sales_videobkg" muted poster="">
+            		<source src="/assets/vids_home/wo_main.mp4">
+        			</video>
+	</div>
+</div>
+

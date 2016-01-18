@@ -15,7 +15,7 @@ class PortManager < ActiveRecord::Base
 	validates_presence_of :email, on: :create
 	#check if there is already a port managed for that location
 	validates_uniqueness_of :location
-	validates_uniqueness_of :email
+	validates_uniqueness_of :email, uniqueness: { case_sensitive: false }
 	#check for a valid email using the validates_format_of_email gem
 	validates :email, :email_format => { :message => 'Are you sure you entered a valid email address?' }
 	#run the unique email method to see if it's anywhere in the database

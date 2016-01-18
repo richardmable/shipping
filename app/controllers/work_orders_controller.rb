@@ -1,42 +1,39 @@
 class WorkOrdersController < ApplicationController
   def index
     @WorkOrders = WorkOrder.all
- 
   end
 
   def show
-    @container = Container.where(work_order_id: params[:id])
-    @workorder = WorkOrder.find_by_id(params[:id])
+  @container = Container.where(work_order_id: params[:id])
+  @workorder = WorkOrder.find_by_id(params[:id])
 
   end
 
   def create
       # check to see if the cargo description is at least 50 chars
-      # uses a regexp where \. selects every character and .count then counts them
       descriptionCount = wo_params[:description].length
-      puts "HERES THE FIRST DESCRIPTION COUNT"
-      puts descriptionCount
       if  descriptionCount.to_i < 50 
         flash[:alert] = "The cargo description needs to be at least 50 characters"
         redirect_to :controller => 'salesmen', :action => 'index'
-        puts "SECOND DESCRIPTION COUNT"
-        puts descriptionCount
       else
-       @workorder = WorkOrder.create(wo_params)
-
-        puts "************************"
-        puts c = wo_params[:containers_attributes]
-
-        c.each do |f|
-          puts f.inspect
-          q =  f[1][:quantity]
-            for i in 0..q.to_i
-              puts "CONTAINER CREATING"
-              @workorder.containers.push Container.create(cargo_type: f[1][:cargo_type], weight: f[1][:weight] )
-            end
+        shipmentCost = (wo_params[:containers_attributes[:quantity]] * (wo_params[:destination_port_manager_id] + wo_params[:origin_port_manager_id])) * 100
+        if shipmentCost < 1000
+          flash[:alert] = "The Work Order needs to cost at least $1,000. Ship more stuff!"
+          redirect_to :controller => 'salesmen', :action => 'index'
+        else
+          wo_params[:cost] = shipmentCost
+          @workorder = WorkOrder.create(wo_params)
+          c = wo_params[:containers_attributes]
+          c.each do |f|
+            puts f.inspect
+            q =  f[1][:quantity]
+              for i in 0..q.to_i
+                @workorder.containers.push Container.create(cargo_type: f[1][:cargo_type], weight: f[1][:weight] )
+              end
+          end
         end
-    redirect_to work_orders_path
       end
+      redirect_to work_orders_path
   end
 
   def destroy
@@ -44,18 +41,73 @@ class WorkOrdersController < ApplicationController
 
   def edit
     @container = Container.where(work_order_id: params[:id])
-    @workorder = WorkOrder.find_by_id(params[:id])
-    @qty = Container.where(work_order_id: params[:id]).count
+  @workorder = WorkOrder.find_by_id(params[:id])
+  @qty = Container.where(work_order_id: params[:id]).count
+
   end
 
-  def update
-    wo = WorkOrder.find_by_id(params[:id])
-    wo.update(wo_updates)
-    wo.save
 
-    BoatWorkOrder.create(boat_id: WorkOrder.find_by_id(params[:id]).boat_id, work_order_id: params[:id])
+   def update
+    if status[:complete] == "false"
+    
+    # find the work order
+      wo = WorkOrder.find_by_id(params[:id])
+      #update the work order with the params
+      wo.update(wo_updates)
+      #create the entry in the join table that assigns the work order to the boat
+      bow = BoatWorkOrder.create(boat_id: WorkOrder.find(params[:id]).boat_id, work_order_id: params[:id])
+      #flash message if they both work
+      if wo.save && bow.save
+        flash[:notice] = "Boat was assigned to work order"
+      else
+        flash[:alert] = "There was a problem assigning the boat to the work order"
+      end
+      
+  end
+  if wo_updates[:complete] == "true"
+    # find the work order
+      wo = WorkOrder.find_by_id(params[:id])
+      #update the work order with the params
+      wo.update(status)
+      # destroy record in join table which is used to show if it is on the boat.
+    BoatWorkOrder.where(work_order_id: params[:id]).destroy_all
+  flash[:notice] = "Order is on the dock for customer pickup."
+  end
+
     redirect_to work_orders_path
+
   end
+#   def update
+#     #find the work order
+#     # if params[:complete] == false
+#       puts params[:complete]
+
+# #       wo = WorkOrder.find_by_id(params[:id])
+# #       #update the work order with the params
+# #       wo.update(wo_updates)
+# #       #create the entry in the join table that assigns the work order to the boat
+# #       bow = BoatWorkOrder.create(boat_id: WorkOrder.find(params[:id]).boat_id, work_order_id: params[:id])
+# #       #flash message if they both work
+# #       if wo.save && bow.save
+# #         flash[:notice] = "Boat was assigned to work order"
+# #       else
+# #         flash[:alert] = "There was a problem assigning the boat to the work order"
+# #       end
+# #       redirect_to work_orders_path
+# #     end
+
+# #     if params[:complete] == true
+# #       puts "*** *** *** ***"
+# #       wo = WorkOrder.find_by_id(params[:id])
+# #       #update the work order with the params
+# #       wo.update(wo_updates)
+
+# #       BoatWorkOrder.find(work_order_id: params[:id]).destroy.all
+# #     end
+# # redirect_to work_orders_path
+
+
+#   end
 
   def new
   end
@@ -64,18 +116,20 @@ class WorkOrdersController < ApplicationController
   private
 
   def wo_params
-      params.require(:work_order).permit(:name, :description, :destination_port_manager_id, :origin_port_manager_id, :salesman_id, containers_attributes: [ :quantity, :cargo_type, :weight])
+      params.require(:work_order).permit(:name, :cost, :description, :destination_port_manager_id, :origin_port_manager_id, :salesman_id, containers_attributes: [ :quantity, :cargo_type, :weight])
     end
 
   def wo_updates
-      params.require(:work_order).permit(:boat_id, :complete)
+      params.require(:work_order).permit(:boat_id, :complete, :destination_port_manager_id)
     end
 
   def boat
       params.require(:work_order).permit(:boat_id)
     end
 
-
+  def status
+      params.require(:work_order).permit(:complete)
+  end
 
   def container
     params.require(:work_order).permit(container: [])
@@ -84,7 +138,6 @@ class WorkOrdersController < ApplicationController
   def qty
     params.require(:work_order).permit(container_attributes: [ :quantity])
   end
-
 end
 
 

@@ -5,8 +5,12 @@
 					<div class="wo_head"></div>
 					<!-- <div class="wo_show_bkg"></div> -->
 					<div class="wo_detail">
+						<h1>#<%= @workorder.id%> </h1><%=link_to "Update Status", edit_work_order_path(@workorder.id)%><br>
+						<br>
+
+
 						Owner:
-						<%=@workorder.name%>
+						<%=@workorder.name%>  
 						<br><br>
 
 						Containers: 
@@ -14,11 +18,11 @@
 						<br><br>
 
 						Destination: 
-						<%=@workorder.destination_port_manager_id%>
+						<%=location(@workorder.destination_port_manager_id)%>
 						<br><br>
 
-						Containers: 
-						<%=@workorder.container_count%>
+						Status: 
+						<%=wo_status(@workorder.id)%>
 						<br>
 						<br>
 						<br>

@@ -16,7 +16,7 @@ module BoatsHelper
 	end
 
 	def location(x)
-
+		#assign y to the Portmanager
 		y = PortManager.find_by_id(x)
 		y.location
 	
@@ -32,6 +32,11 @@ module BoatsHelper
 	end
 		def container(x)
 		Container.where(x)
+
+		end
+
+		def loaded_wos(x)
+		BoatWorkOrder.where(boat_id: x).all
 
 		end
 

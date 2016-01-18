@@ -20,7 +20,12 @@
 						Place Order on a boat to ship: <br>
 						<%= f.select :boat_id, boat_select_option, {include_blank: true}%>
 						<br><br><br>
-						Was this order delivered to destination?
+
+						This order was scheduled for <strong><%=location(@workorder.destination_port_manager_id)%></strong><br>
+
+
+						Was this order delivered to <strong><%=location(@workorder.destination_port_manager_id)%></strong>?
+
 						<%= f.select :complete, [
 	      ['No', false],
 	      ['Yes, delivered for customer pickup.', true],

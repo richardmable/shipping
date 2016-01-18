@@ -114,3 +114,32 @@
 	padding: 30px;
 	z-index: 500;
 }
+.wo_detail {
+	width: 430px;
+	height: 300px;
+	margin-top: 5px;
+	margin-left: 5px;
+	padding: 30px;
+	background: rgb(255,255,255);
+	margin-bottom: 10px;
+	z-index:9999;
+	overflow: hidden;
+}
+// SCROLL BAR STYLING
+// WORK ORDER
+.wo_detail::-webkit-scrollbar {
+    width: 0.3em;
+}
+
+.wo_detail::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.wo_detail::-webkit-scrollbar-thumb {
+  background-color: rgba(40,172,255,0.7);
+}
+
+.wo_detail:hover {
+	overflow-y: scroll;
+	padding-right: 30px;
+}

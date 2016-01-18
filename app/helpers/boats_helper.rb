@@ -16,7 +16,7 @@ module BoatsHelper
 	end
 
 	def location(x)
-
+		#assign y to the Portmanager
 		y = PortManager.find_by_id(x)
 		y.location
 	

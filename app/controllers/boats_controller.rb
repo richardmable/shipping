@@ -43,5 +43,5 @@ end
 
 private
 def info
-    params.require(:boat).permit(:destination_port_manager, :at_sea)
+    params.require(:boat).permit(:destination_port_manager_id, :at_sea)
   end

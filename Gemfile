@@ -29,6 +29,9 @@ gem 'bcrypt'
 # for validating emails
 gem 'validates_email_format_of'
 
+#for uploading pictures for boats
+gem 'paperclip'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

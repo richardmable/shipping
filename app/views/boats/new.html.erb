@@ -4,13 +4,15 @@
 				<div class="bo_create_cont">
 					<div class="bo_create_head"></div>
 						<div class="boat_create_p">
-							<%= form_for @boat do |b| %>
+							<%= form_for @boat, :html => { :multipart => true } do |b| %>
 								<%= b.label :Name %>
 								<%= b.text_field :name %>
 								<br>
 								<br>
 								<%= b.label :Container_Limit %>
 								<%= b.number_field :container_limit %>
+								<br>
+								<%= form.file_field :avatar %>
 							<% end %>
 						</div>	
 				</div>

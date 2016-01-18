@@ -20,7 +20,9 @@
 						At port in <%=location(@boat.id)%>.
 						<%end%>
 
-
+					<!-- just placeholder for the time being... will be deleted when formatted -->
+					<strong>Containter_ID...Container_type...Owner...Port_of_Origin</strong>
+					<%= image_tag @boat.avatar.url(:medium) %>
 					<br>
 
 					<% @workorder.each do |x| %> 
@@ -35,9 +37,6 @@
 						<%end%>, <%=WorkOrder.find_by_id(x.id).name%>  <%=PortManager.find_by_id(WorkOrder.find_by_id(x.id).id).location%>
 
 						<br>
-
-
-							
 
 					<%end%>
 					<%end%>	

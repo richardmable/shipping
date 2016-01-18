@@ -1,36 +1,52 @@
-<h1>Boats#index</h1>
-<p>Find me in app/views/boats/index.html.erb</p>
+
+<div class="logo_in_pm"></div>
+	<div class="wrapper">
+		<div class="sales_lo">
+			<div class="wo_show_wrap">
+				<div class="bo_ind_left">
+					<div class="bo_detail_head"></div>
+					<div class="boat_detail_ip">
+					<!-- boat id/ name/ at_sea/ destination/ container limit -->
+					<%= @boat.name%> is able to haul <%= @boat.container_limit%> containers<br>
+						<br>
+						Current containers loaded: <br>
+
+					<!-- just placeholder for the time being... will be deleted when formatted -->
+					<strong>Containter_ID...Container_type...Owner...Port_of_Origin</strong>
+
+					<br>
+
+					<% @workorder.each do |x| %> 
+
+					<!-- This will loop the whole div for any ship that is due in (destination set and at sea) -->
+						<% Container.where(work_order_id: x).each do |z| %> 
+						<%=link_to  z.id, container_path(x.id)%>, 
+						<%if z.cargo_type == 1%>
+						Standard
+						<%else%>
+						Freezer
+						<%end%>, <%=WorkOrder.find_by_id(x.id).name%>  <%=PortManager.find_by_id(WorkOrder.find_by_id(x.id).id).location%>
+
+						<br>
 
 
+							
 
-boat id/ name/ at_sea/ destination/ container limit
+					<%end%>
+					<%end%>	
+					</div>
+				</div>
+				<div class="bo_detail_right">
+					<div class="bo_inport_head"></div> 
+						<div class="boat_show_ip">
+							pull in bo_ind_left from index
+							@boats.each throws error
+						</div>	
+				</div>
+			</div>
+        			<video autoplay loop id="sales_videobkg" muted poster="">
+            		<source src="/assets/vids_home/boats_main.mp4">
+        			</video>
+	</div>
+</div>
 
-<br><br><br>
-
-<%= @boat.name%> is able to haul <%= @boat.container_limit%> containers<br>
-<br>
-Current containers loaded: <br>
-
-<!-- just placeholder for the time being... will be deleted when formatted -->
-<strong>Containter_ID...Container_type...Owner...Port_of_Origin</strong>
-
-<br>
-
-<% @workorder.each do |x| %> 
-
-<!-- This will loop the whole div for any ship that is due in (destination set and at sea) -->
-	<% Container.where(work_order_id: x).each do |z| %> 
-	<%=link_to  z.id, container_path(x.id)%>, 
-	<%if z.cargo_type == 1%>
-	Standard
-	<%else%>
-	Freezer
-	<%end%>, <%=WorkOrder.find_by_id(x.id).name%>  <%=PortManager.find_by_id(WorkOrder.find_by_id(x.id).id).location%>
-
-	<br>
-
-
-		
-
-<%end%>
-<%end%>

@@ -1,5 +1,7 @@
 
-WorkOrder.create(container_count: 100, boat_id: 4, origin_port_manager_id: 1, destination_port_manager_id: 8, name: "Merck", description: "Shippment of pharmaceuticals to be distributed throughout Eastern Africa.  Terms: FOB Destination", complete: false, salesman_id: 1)
+WorkOrder.create(container_count: 100, boat_id: 4, origin_port_manager_id: 1, destination_port_manager_id: 8, name: "Merck", description: "Shippment of pharmaceuticals to be distributed throughout Eastern Africa.  Terms: FOB Destination", complete: false, salesman_id: 1, cost: 3000)
+WorkOrder.create(container_count: 200, boat_id: 5, origin_port_manager_id: 2, destination_port_manager_id: 9, name: "China Shipping Line", description: "Don't know what Americans buy, but is sure is a lot. Mostly for the isles of walmart. Enjoy. Sincerly, China.", complete: false, salesman_id: 2, cost: 9000)
+WorkOrder.create(container_count: 300, boat_id: 6, origin_port_manager_id: 3, destination_port_manager_id: 10, name: "'stralia Shipping line mate", description: "buncha kangoroos really, no idea what else in ere mate! Could be dingos, crocrodiles, spiders, 'stralia will kill ya mate!", complete: false, salesman_id: 3, cost: 36000)
 
 BoatWorkOrder.create(boat_id: 4, work_order_id: 1)
 

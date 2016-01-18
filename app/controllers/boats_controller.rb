@@ -36,6 +36,13 @@ def edit
 
   end
 
+  def boat_follow
+    @boats = Boat.all
+  end
+
+  def follow
+    
+  end
 
   def destroy
   end

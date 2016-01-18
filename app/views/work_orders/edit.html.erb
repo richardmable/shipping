@@ -4,7 +4,8 @@
 			<div class="wo_show_wrap">
 				<div class="wo_show_left">
 					<div class="wo_head"></div>
-					<div class="wo_show_bkg">
+					<!-- <div class="wo_show_bkg"> -->
+					<div class="wo_edit_body">
 						<%= form_for @workorder do |f| %>    
 						<h1>#<%=@workorder.id %></h1> <br>
 						Owner: <%=@workorder.name %> <br><br>
@@ -19,35 +20,34 @@
 						Place Order on a boat to ship: <br>
 						<%= f.select :boat_id, boat_select_option, {include_blank: true}%>
 						<br><br><br>
+
 						This order was scheduled for <strong><%=location(@workorder.destination_port_manager_id)%></strong><br>
 
 
 						Was this order delivered to <strong><%=location(@workorder.destination_port_manager_id)%></strong>?
+
 						<%= f.select :complete, [
 	      ['No', false],
 	      ['Yes, delivered for customer pickup.', true],
 		],  {include_blank: true}%>
-						<br><br>
+						<br>
 					
-												<!-- This will call the partial for the line item table -->
+								<!-- This will call the partial for the line item table -->
 							
 
 
 									
 
-								<!-- this loop is nested inside of the form and will give the different categories that an article may fall into. -->
-
-
-
-								<br>	
+								<!-- this loop is nested inside of the form and will give the different categories that an article may fall into. -->	
 								
-								
-							<%=f.submit :update, class: 'wo_submit' %>
-							<% end %>
-					
-					</div>
-					<!-- this needs to be swapped out with a turbolink code -->
-					<div class="woshow_savebutt"> </div>
+						</div>
+					<!-- </div> -->
+<!-- 					this needs to be swapped out with a turbolink code
+					<div class="woshow_savebutt"> </div> -->
+							<div class="update_wo_butt">
+								<%=f.submit :update, class: 'wo_submit' %>
+								<% end %>
+							</div>
 					
 					<div class="wo_show">
 						

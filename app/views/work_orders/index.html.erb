@@ -4,11 +4,13 @@
 			<div class="wo_show_wrap">
 				<div class="wo_show_left">
 					<div class="wo_open_head"></div>
+						<div class="wo_open">
 							<% @WorkOrders.each do |x| %> 
 							<div class="wo_show_owo">
 							<%=link_to x.id, work_order_path(x.id)%> <%=x.name%> <%=x.origin_port_manager_id%> <%=x.destination_port_manager_id%> <%=link_to x.description, work_order_path(x.id)%><br>
 							</div>
 							<%end%>
+						</div>
 				</div>
 				<div class="wo_show_right">
 				<div class="wo_closed_head"></div>

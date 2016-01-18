@@ -7,12 +7,10 @@
 					<div class="bo_detail_head"></div>
 					<div class="boat_detail_ip">
 					<!-- boat id/ name/ at_sea/ destination/ container limit -->
-					<%= @boat.name%> is able to haul <%= @boat.container_limit%> containers<br>
+					<h1>#<%= @boat.id%> <%= @boat.name%></h1> is able to haul <%= @boat.container_limit%> containers<br>
 						<br>
 						Current containers loaded: <br>
 
-					<!-- just placeholder for the time being... will be deleted when formatted -->
-					<strong>Containter_ID...Container_type...Owner...Port_of_Origin</strong>
 
 					<br>
 

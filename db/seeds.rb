@@ -1,27 +1,14 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 
 WorkOrder.create(container_count: 100, boat_id: 4, name: "Merck", description: "Shippment of pharmaceuticals to be distributed throughout Eastern Africa.  Terms: FOB Destination", complete: false, salesman_id: 1)
-
-
 
 BoatWorkOrder.create(boat_id: 4, work_order_id: 1)
 
 SalesmanBoat.create(salesman_id: 1, boat_id: 4)
 
-
-
-
 Salesman.create(email: "kevin@kkr.com", password: "123", territory: "Europe")
 Salesman.create(email: "kns@kkr.com", password: "123", territory: "Asia")
 Salesman.create(email: "richard@kkr.com", password: "123", territory: "Americas")
 Salesman.create(email: "africa@kkr.com", password: "123", territory: "Africa")
-
 
 Container.create(work_order_id: 1, weight: 2, cargo_type: 1)
 Container.create(work_order_id: 1, weight: 2, cargo_type: 1)

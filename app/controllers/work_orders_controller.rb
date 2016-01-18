@@ -10,34 +10,30 @@ class WorkOrdersController < ApplicationController
 
 end
 
-def create
-    #check to see if the cargo description is at least 50 chars
-    #uses a regexp where \. selects every character and .count then counts them
+  def create
+      #check to see if the cargo description is at least 50 chars
+      #uses a regexp where \. selects every character and .count then counts them
 
-    # descriptionCount = wo_params[:description].count "/\./"
-    # if  descriptionCount.to_i < 50 
-    #   flash[:alert] = "The cargo description needs to be at least 50 characters"
-    #   redirect_to :controller => 'salesmen', :action => 'index'
-    # else
-     @workorder = WorkOrder.create(wo_params)
+      # descriptionCount = wo_params[:description].count "/\./"
+      # if  descriptionCount.to_i < 50 
+      #   flash[:alert] = "The cargo description needs to be at least 50 characters"
+      #   redirect_to :controller => 'salesmen', :action => 'index'
+      # else
+       @workorder = WorkOrder.create(wo_params)
 
-      puts "************************"
-      puts c = wo_params[:containers_attributes]
+        puts "************************"
+        puts c = wo_params[:containers_attributes]
 
-      c.each do |f|
-        puts f.inspect
-        q =  f[1][:quantity]
-        for i in 0..q.to_i
-          puts "CONTAINER CREATING"
-          @workorder.containers.push Container.create(cargo_type: f[1][:cargo_type], weight: f[1][:weight] )
+        c.each do |f|
+          puts f.inspect
+          q =  f[1][:quantity]
+          for i in 0..q.to_i
+            puts "CONTAINER CREATING"
+            @workorder.containers.push Container.create(cargo_type: f[1][:cargo_type], weight: f[1][:weight] )
+          end
         end
-
-      # end
-      redirect_to work_orders_path
-    end
-  
-
-end
+    redirect_to work_orders_path
+  end
 
   def destroy
   end

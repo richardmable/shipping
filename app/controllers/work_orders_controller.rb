@@ -28,7 +28,7 @@ end
 
         end
 
-      end
+      
       redirect_to work_orders_path
     end
   
@@ -46,22 +46,71 @@ end
   end
 
 
-  def update
-    #find the work order
-    wo = WorkOrder.find_by_id(params[:id])
-    #update the work order with the params
-    wo.update(wo_updates)
-    #create the entry in the join table that assigns the work order to the boat
-    bow = BoatWorkOrder.create(boat_id: WorkOrder.find(params[:id]).boat_id, work_order_id: params[:id])
-    #flash message if they both work
-    if wo.save && bow.save
-      flash[:notice] = "Boat was assigned to work order"
-    else
-      flash[:alert] = "There was a problem assigning the boat to the work order"
-    end
+   def update
+    
+
+    
+
+    if status[:complete] == "false"
+    
+    # find the work order
+      wo = WorkOrder.find_by_id(params[:id])
+      #update the work order with the params
+      wo.update(wo_updates)
+      #create the entry in the join table that assigns the work order to the boat
+      bow = BoatWorkOrder.create(boat_id: WorkOrder.find(params[:id]).boat_id, work_order_id: params[:id])
+      #flash message if they both work
+      if wo.save && bow.save
+        flash[:notice] = "Boat was assigned to work order"
+      else
+        flash[:alert] = "There was a problem assigning the boat to the work order"
+      end
+      
+  end
+  if wo_updates[:complete] == "true"
+    # find the work order
+      wo = WorkOrder.find_by_id(params[:id])
+      #update the work order with the params
+      wo.update(status)
+      # destroy record in join table which is used to show if it is on the boat.
+    BoatWorkOrder.where(work_order_id: params[:id]).destroy_all
+  flash[:notice] = "Order is on the dock for customer pickup."
+  end
+
     redirect_to work_orders_path
 
   end
+#   def update
+#     #find the work order
+#     # if params[:complete] == false
+#       puts params[:complete]
+
+# #       wo = WorkOrder.find_by_id(params[:id])
+# #       #update the work order with the params
+# #       wo.update(wo_updates)
+# #       #create the entry in the join table that assigns the work order to the boat
+# #       bow = BoatWorkOrder.create(boat_id: WorkOrder.find(params[:id]).boat_id, work_order_id: params[:id])
+# #       #flash message if they both work
+# #       if wo.save && bow.save
+# #         flash[:notice] = "Boat was assigned to work order"
+# #       else
+# #         flash[:alert] = "There was a problem assigning the boat to the work order"
+# #       end
+# #       redirect_to work_orders_path
+# #     end
+
+# #     if params[:complete] == true
+# #       puts "*** *** *** ***"
+# #       wo = WorkOrder.find_by_id(params[:id])
+# #       #update the work order with the params
+# #       wo.update(wo_updates)
+
+# #       BoatWorkOrder.find(work_order_id: params[:id]).destroy.all
+# #     end
+# # redirect_to work_orders_path
+
+
+#   end
 
 
 
@@ -83,6 +132,9 @@ def boat
     params.require(:work_order).permit(:boat_id)
   end
 
+def status
+    params.require(:work_order).permit(:complete)
+  end
 
 
   def container

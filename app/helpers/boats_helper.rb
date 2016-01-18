@@ -35,6 +35,11 @@ module BoatsHelper
 
 		end
 
+		def loaded_wos(x)
+		BoatWorkOrder.where(boat_id: x).all
+
+		end
+
 	end
 
 

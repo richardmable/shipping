@@ -5,8 +5,12 @@
 					<div class="wo_head"></div>
 					<!-- <div class="wo_show_bkg"></div> -->
 					<div class="wo_detail">
+						<h1>#<%= @workorder.id%> </h1><%=link_to "Update Status", edit_work_order_path(@workorder.id)%><br>
+						<br>
+
+
 						Owner:
-						<%=@workorder.name%>
+						<%=@workorder.name%>  
 						<br><br>
 
 						Containers: 
@@ -17,8 +21,8 @@
 						<%=location(@workorder.destination_port_manager_id)%>
 						<br><br>
 
-						Containers: 
-						<%=@workorder.container_count%>
+						Status: 
+						<%=wo_status(@workorder.id)%>
 						<br>
 						<br>
 						<br>
@@ -42,21 +46,12 @@
 					</div>
 
 				</div>
-				<div class="wo_show_right">
-					<div class="wo_show_owo">
-						space for link to open work order
-					</div>	
-					<div class="wo_show_owo">
-						space for link to open work order
-					</div>
-					<div class="wo_show_owo">
-						space for link to open work order
-					</div>
-					<div class="wo_show_owo">
-						space for link to open work order
-					</div>
-					<div class="wo_show_owo">
-						space for link to open work order
+				<div class="wo_route_right">
+				<div class="wo_route_head"></div>
+					<div class="wo_show_route">
+						<video autoplay loop id="route_video" muted poster="">
+	            		<source src="/assets/vids_routes/1.mp4">
+	        			</video>	
 					</div>
 				</div>
 			</div>

@@ -22,7 +22,7 @@
 						<%end%>
 
 					<!-- just placeholder for the time being... will be deleted when formatted -->
-					<strong>Containter_ID...Container_type...Owner...Port_of_Origin</strong>
+					<br>
 					<%= image_tag @boat.avatar.url(:medium) %>
 					<br>
 
@@ -45,16 +45,20 @@
 				</div>
 				<div class="bo_detail_right">
 					<div class="bo_inport_head"></div> 
-						<% @boats.each do |x| %>
+
+
+						<% loaded_wos(@boat).each do |x| %>
 							<!-- This will loop the whole div for any ship that is due in (destination set and at sea) -->
-								<% if @currentPortManager %>
-								    <%if @currentPortManager.id == x.destination_port_manager_id && x.at_sea == false %> 
+
+								
 									    <div class="boat_show_ip">
-									    <%=link_to x.name, boat_path(x.id), :class => 'bo_name' %> with
-									    <%=x.container_limit%> containers.
+									    <%=link_to workorder(x.work_order_id).id, work_order_path(workorder(x.work_order_id).id), :class => 'bo_name' %>
+									    <br>
+									    Origin: <%=location(workorder(x.work_order_id).origin_port_manager_id)%> 
+									    <br>
+									    Containers: <%=workorder(x.work_order_id).container_count%>
 									    </div>
-								    <%end%>
-								<% end %>
+								    
 							<%end%>	
 				</div>
 			</div>

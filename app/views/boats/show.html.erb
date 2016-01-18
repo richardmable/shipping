@@ -14,17 +14,11 @@
 
 						Current location:
 						<%if @boat.at_sea == true%>
-<<<<<<< HEAD
 						At sea, destined for <%=location(@boat.destination_port_manager_id)%>.
 						<%end%>
 						<%if @boat.at_sea == false%>
 						At port in <%=location(@boat.destination_port_manager_id)%>.
-=======
-						At sea, destined for <%=location(@boat.id)%>.
-						<%end%>
-						<%if @boat.at_sea == false%>
-						At port in <%=location(@boat.id)%>.
->>>>>>> 8c0ffeececa53b2211b268d74c72f46dcab40c28
+
 						<%end%>
 
 					<!-- just placeholder for the time being... will be deleted when formatted -->

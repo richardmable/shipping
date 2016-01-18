@@ -51,9 +51,11 @@
 
 //this is to make the flash messaging fade in and out
 $(function(){
-  $(".flashMessage").fadeIn(200);
-  $(".flashMessage").delay(3000);
-  $(".flashMessage").fadeOut(200);
+  if ($(".flashMessage") != "") {
+    $(".flashMessage").fadeIn(200);
+    $(".flashMessage").delay(3000);
+    $(".flashMessage").fadeOut(200);
+  };
 });
 
 

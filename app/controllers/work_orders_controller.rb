@@ -7,8 +7,7 @@ class WorkOrdersController < ApplicationController
   @container = Container.where(work_order_id: params[:id])
   @workorder = WorkOrder.find_by_id(params[:id])
 
-end
-
+  end
 
   def create
       # check to see if the cargo description is at least 50 chars
@@ -30,10 +29,7 @@ end
 
       end
       redirect_to work_orders_path
-    end
-  
-
-end
+  end
 
   def destroy
   end

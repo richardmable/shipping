@@ -4,10 +4,11 @@ class WorkOrdersController < ApplicationController
   end
 
   def show
-    @container = Container.where(work_order_id: params[:id])
-    @workorder = WorkOrder.find_by_id(params[:id])
+  @container = Container.where(work_order_id: params[:id])
+  @workorder = WorkOrder.find_by_id(params[:id])
 
-  end
+end
+
 
   def create
       # check to see if the cargo description is at least 50 chars
@@ -24,19 +25,26 @@ class WorkOrdersController < ApplicationController
             for i in 0..q.to_i
               @workorder.containers.push Container.create(cargo_type: f[1][:cargo_type], weight: f[1][:weight] )
             end
+
         end
-    redirect_to work_orders_path
+
       end
-  end
+      redirect_to work_orders_path
+    end
+  
+
+end
 
   def destroy
   end
 
   def edit
     @container = Container.where(work_order_id: params[:id])
-    @workorder = WorkOrder.find_by_id(params[:id])
-    @qty = Container.where(work_order_id: params[:id]).count
+  @workorder = WorkOrder.find_by_id(params[:id])
+  @qty = Container.where(work_order_id: params[:id]).count
+
   end
+
 
   def update
     #find the work order
@@ -52,7 +60,10 @@ class WorkOrdersController < ApplicationController
       flash[:alert] = "There was a problem assigning the boat to the work order"
     end
     redirect_to work_orders_path
+
   end
+
+
 
   def new
   end
@@ -60,17 +71,17 @@ class WorkOrdersController < ApplicationController
 
   private
 
-  def wo_params
-      params.require(:work_order).permit(:name, :description, :destination_port_manager_id, :origin_port_manager_id, :salesman_id, containers_attributes: [ :quantity, :cargo_type, :weight])
-    end
+def wo_params
+    params.require(:work_order).permit(:name, :description, :destination_port_manager_id, :origin_port_manager_id, :salesman_id, containers_attributes: [ :quantity, :cargo_type, :weight])
+  end
 
-  def wo_updates
-      params.require(:work_order).permit(:boat_id, :complete)
-    end
+def wo_updates
+    params.require(:work_order).permit(:boat_id, :complete, :destination_port_manager_id)
+  end
 
-  def boat
-      params.require(:work_order).permit(:boat_id)
-    end
+def boat
+    params.require(:work_order).permit(:boat_id)
+  end
 
 
 
@@ -81,7 +92,6 @@ class WorkOrdersController < ApplicationController
   def qty
     params.require(:work_order).permit(container_attributes: [ :quantity])
   end
-
 end
 
 

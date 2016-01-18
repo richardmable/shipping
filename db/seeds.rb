@@ -1,5 +1,5 @@
 
-WorkOrder.create(container_count: 100, boat_id: 4, name: "Merck", description: "Shippment of pharmaceuticals to be distributed throughout Eastern Africa.  Terms: FOB Destination", complete: false, salesman_id: 1)
+WorkOrder.create(container_count: 100, boat_id: 4, origin_port_manager_id: 1, destination_port_manager_id: 8, name: "Merck", description: "Shippment of pharmaceuticals to be distributed throughout Eastern Africa.  Terms: FOB Destination", complete: false, salesman_id: 1)
 
 BoatWorkOrder.create(boat_id: 4, work_order_id: 1)
 
@@ -145,4 +145,3 @@ Boat.create(name: "Schooner Sweepstakes", container_limit: 10, destination_port_
 Boat.create(name: "Sea Lion", container_limit: 50, destination_port_manager_id: 6, at_sea: false, avatar: File.new("app/assets/images/boatPics/boat21.jpg"))
 Boat.create(name: "El Faro", container_limit: 300, destination_port_manager_id: 9, at_sea: false, avatar: File.new("app/assets/images/boatPics/boat22.jpg"))
 Boat.create(name: "Flinterstar", container_limit: 300, destination_port_manager_id: 10, at_sea: false, avatar: File.new("app/assets/images/boatPics/boat23.jpg"))
-

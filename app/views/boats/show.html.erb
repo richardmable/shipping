@@ -13,11 +13,11 @@
 						Current containers loaded: <br><br>
 
 						Current location:
-						<%if @boat.at_sea = true%>
-						At sea, destined for <%=location(@boat.id)%>.
+						<%if @boat.at_sea == true%>
+						At sea, destined for <%=location(@boat.destination_port_manager_id)%>.
 						<%end%>
-						<%if @boat.at_sea = false%>
-						At port in <%=location(@boat.id)%>.
+						<%if @boat.at_sea == false%>
+						At port in <%=location(@boat.destination_port_manager_id)%>.
 						<%end%>
 
 					<!-- just placeholder for the time being... will be deleted when formatted -->

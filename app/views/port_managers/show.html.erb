@@ -14,7 +14,9 @@
 						space for link to open work order
 					</div>
 					<div class="wo_show_owo">
-						space for link to open work order
+						<%PortManager.all.each do |x|%>
+				<%=x.id%> <%=x.location%>
+				<%=end%>  
 					</div>
 					<div class="wo_show_owo">
 						space for link to open work order

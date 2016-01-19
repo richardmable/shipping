@@ -17,6 +17,10 @@
 						<%=@workorder.container_count%>
 						<br><br>
 
+						Origin: 
+						<%=location(@workorder.origin_port_manager_id)%>
+						<br><br>
+
 						Destination: 
 						<%=location(@workorder.destination_port_manager_id)%>
 						<br><br>
@@ -27,6 +31,9 @@
 						<br>
 						<br>
 						Containers being shipped on order:<br><br>
+
+						Cost: <%=number_to_currency(cost(@workorder.origin_port_manager_id,@workorder.destination_port_manager_id, @workorder.container_count))%>
+						<br><br>
 
 						<% @container.each do |w|%> 
 						<%= w.id%>    
@@ -50,7 +57,7 @@
 				<div class="wo_route_head"></div>
 					<div class="wo_show_route">
 						<video autoplay loop id="route_video" muted poster="">
-	            		<source src="/assets/vids_routes/1.mp4">
+	            		<source src="/assets/vids_routes/<%=route(@workorder.origin_port_manager_id, @workorder.destination_port_manager_id)%>.mp4">
 	        			</video>	
 					</div>
 				</div>

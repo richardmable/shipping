@@ -1,12 +1,7 @@
 This page is for testing...
 
 
-<% WorkOrder.all.each do |x| %>
-				<!-- This will loop the whole div for any ship that is due in (destination set and at sea) -->
-				
-				
-				
-					<%=x.name%> 
-				<br>
-				<%end%>
-				
+
+				<%PortManager.all.each do |x|%>
+				<%=x.id%> <%=x.location%>
+				<%=end%>  

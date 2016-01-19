@@ -1,2 +1,6 @@
 <h1>Containers#destroy</h1>
 <p>Find me in app/views/containers/destroy.html.erb</p>
+
+<%PortManager.all.each do |x|%>
+				<%=x.id%> <%=x.location%>
+				<%=end%>  

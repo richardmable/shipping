@@ -43,5 +43,15 @@ $(document).on("page:update", function(){
       });        
 });
 
+// this is the slideshow for the create boat page
+function slideSwitch() {
+        var $active = $('div.bo_slide IMG.bo_slide_active');
+        var $next = $active.next();    
+        $next.addClass('bo_slide_active').fadeIn(200);
+        $active.removeClass('bo_slide_active').fadeIn(200);
+    }
+    $(function() {
+        setInterval( "slideSwitch()", 3000 ).fadeIn(200);
+});
 
 

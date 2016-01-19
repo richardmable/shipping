@@ -21,27 +21,34 @@ class BoatsController < ApplicationController
   end
 
   def create
-    #create the boat with the supplied params. This needs to happen first so that
-    # we know the ID of the boat that was just created to enter it into the join table
-    @boat = Boat.create(boat_params)
-    #set the PMID params of the join table to the current port manager
-    boat_owner_params[:port_manager_id] = @currentPortManager.id
-    #set the BID to the ID of the newly created both
-    #it should always be the last boat created in the database
-    boat_owner_params[:boat_id] = Boat.last.id
-    puts "********************************************************************************"
-    puts boat_owner_params
-    #create the entry in the join table for assigning the boat to an owner
-    PortManagerBoat.create(boat_owner_params)
-      #if the boat is saved, display messages, redirect to the boats index
-      if @boat.save
-        flash[:notice] = "The vessel was created successfully."
-        redirect_to boats_path
-      else
-        #if it wasn't save, reload the boat create page
-        flash[:alert] = "Something went wrong. Abandon ship!"
-        redirect_to new_boat_path
-      end
+    #validation to check that name is not blank and container limit is an integer
+    if boat_params[:name] == "" || if boat_params[:container_limit] != /\d/
+      flash[:alert] = "Name cannot be blank, or container limit needs to be a number."
+    else
+      #create the boat with the supplied params. This needs to happen first so that
+      # we know the ID of the boat that was just created to enter it into the join table
+      @boat = Boat.create(boat_params)
+        #if the boat is saved, display messages, redirect to the boats index
+        if @boat.save
+          #set the boat_owner to the current signed in port manager
+          #this is inside the if statment so that an entry does not get made to the join table
+          boat_owner = PortManager.find(@currentPortManager.id)
+          #set the boat to the last created boat, which should be the boat that was just created
+          #it should always be the last boat created in the database
+          boat = Boat.last
+          puts boat
+          puts boat_owner
+          #make the association through the join table connecting the boat with its owner
+          boat_owner.boats<<boat
+          flash[:notice] = "The vessel was created successfully."
+          redirect_to boats_path
+        #if no boat was created
+        else
+          #if it wasn't saved, reload the boat create page
+          flash[:alert] = "Something went wrong. Abandon ship!"
+          render :back
+        end
+    end
   end
 
   def edit
@@ -50,10 +57,15 @@ class BoatsController < ApplicationController
   end
 
   def update
-    boat = Boat.find_by_id(params[:id])
-    boat.update(info)
-    boat.save
-
+    @boat = Boat.find_by_id(params[:id])
+    @boat.update(info)
+    if  @boat.save
+      flash[:notice] = "Boat was updated"
+      redirect_to edit_boat_path
+    else
+      flash[:alert] = "Something went wrong, boat was not updated."
+      render :back
+    end
   end
 
   def boat_follow
@@ -68,10 +80,6 @@ class BoatsController < ApplicationController
   end
 
   private
-
-  def boat_owner_params
-    params.require(:boat).permit(:port_manager_id, :boat_id)
-  end
 
   def boat_params
     params.require(:boat).permit(:name, :container_limit, :at_sea, :avatar)

@@ -21,7 +21,8 @@ class PortManager < ActiveRecord::Base
 	#run the unique email method to see if it's anywhere in the database
 	validate :unique_email_port_manager 
 	#link to boats through join table
-	has_many :boats, through: :port_manager_boats
+	#this checks unqieuness so you can't own multiples of the same boat
+	has_many :boats, -> { distinct }, through: :port_manager_boats
 	has_many :port_manager_boats
 	has_many :work_orders
 end

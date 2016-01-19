@@ -23,6 +23,6 @@ class Salesman < ActiveRecord::Base
 	#run the unique email method to see if it's anywhere in the database
 	validate :unique_email_salesman
 	has_many :work_orders
-	has_many :boats, through: :salesman_boats
+	has_many :boats, -> { distinct }, through: :salesman_boats
 	has_many :salesman_boats
 end

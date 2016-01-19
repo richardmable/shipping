@@ -11,6 +11,7 @@
 					<div class="bo_foll_bkg"></div>
 					<div class="bo_foll_l">
 						<% @boats.each do |b| %>
+						<div class="bo_foll_ip ">
 							<p>Name: <%= b.name %></p>
 							<p>Container Limit: <%= b.container_limit %></p>
 							<p>Last updated at: <%= b.updated_at %></p>
@@ -24,12 +25,13 @@
 								<button>Follow this boat</button>
 								<br><br><br>
 							<% end %>
+							</div>
 						<% end %>
 					</div>
 				</div>
 				<div class="bo_foll_right">
 					<div class="bo_folling_head"></div>
-					<div class="bo_foll_bkg"></div>
+					<div class="bo_folling_bkg"></div>
 					<div class="bo_foll_r">
 						put the code to see who your are following<br>
 						in here. when they click it should use the<br>

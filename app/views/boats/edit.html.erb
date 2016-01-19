@@ -1,45 +1,39 @@
-<br>
+	<div class="wrapper">
+		<div class="sales_lo">
+			<div class="wo_show_wrap">
+				<div class="bo_create_cont">
+					<div class="bo_edit_head"></div>
+						<div class="boat_create_p">
+							<%= form_for @boat do |f| %>    
+								<h1>#<%=@boat.id %> <%=@boat.name %></h1> <br>
+								 Curent location: 
+								 <% if @boat.at_sea == false %>
+									Port.
+								 <%else%>
+								 	Sea.
+								 <%end%>
+								 <%=location(@boat.destination_port_manager_id)%>
+								 <br><br>
 
-<%= form_for @boat do |f| %>    
-						<h1>#<%=@boat.id %> <%=@boat.name %></h1> <br>
-						 Curent location: 
-						 <% if @boat.at_sea == false %>
-						Port.
-
-						 <%else%>
-						 Sea.
-
-
-						 <%end%>
-
-						 <%=location(@boat.destination_port_manager_id)%>
-
-
-						  
-						
-						 <br><br>
-
-						 Cargo capacity:  <%= @boat.container_limit%> containers.
-						 <br><br>
-
-				
-
-						Set <%=@boat.name %>'s new destination: <br>
-						<%= f.select :destination_port_manager_id, ports_select_option, {include_blank: true}%>
-						<br><br><br>
-						Set status of ship.
-						<%= f.select :at_sea, [
-	      ['In port.', false],
-	      ['Sailing, at sea.', true],
-		],  {include_blank: true}%>
-						<br><br>
-					
-												
-
-
-								<br>	
-								
-								
-							<%=f.submit :update, class: 'wo_submit' %>
+								 Cargo capacity:  <%= @boat.container_limit%> containers.
+								 <br><br>
+									Set <%=@boat.name %>'s new destination: <br>
+									<%= f.select :destination_port_manager_id, ports_select_option, {include_blank: true}%>
+									<br><br><br>
+									Set status of ship.
+									<%= f.select :at_sea, [
+								      ['In port.', false],
+								      ['Sailing, at sea.', true],
+									],  {include_blank: true}%>		
+						</div>
+						<div class="bo_create">
+							<%=f.submit :update, class: 'bo_create_butt' %>
 							<% end %>
-					
+						</div>
+				</div>
+			</div>
+        			<video autoplay loop id="sales_videobkg" muted poster="">
+            		<source src="/assets/vids_home/boats_home2.mp4">
+        			</video>
+	</div>
+</div>				

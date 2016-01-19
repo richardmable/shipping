@@ -17,8 +17,8 @@
 .flashMessage {
 	display: none;
 	z-index: 9999;
-	right: 5%;
-	top: 5%;
+	right: 37.5%;
+	top: 7%;
 	position: absolute;
 	border-radius: 8px;
 	background-color: rgba(19, 150, 255, 0.7);
@@ -109,7 +109,7 @@
 	font-size: 14px;
 	letter-spacing: 1px;
     text-decoration: none;
-	color: rgb(21, 189, 27);
+	color: rgb(19, 150, 255);
 }
 
 
@@ -146,7 +146,7 @@
 	font-size: 14px;
 	letter-spacing: 1px;
     text-decoration: none;
-	color: rgb(21, 189, 27);
+	color: rgb(19, 150, 255);
 }
 
 .navmenu_lio a:link{
@@ -179,11 +179,11 @@
 }
 .navmenu_lio a:hover {
 	font-family: 'Raleway', sans-serif;
-	font-weight: 500;
-	font-size: 14px;
+	font-weight: 600;
+	font-size: 16px;
 	letter-spacing: 1px;
     text-decoration: none;
-	color: rgb(19, 150, 255);
+	color: rgb(223, 0, 9);
 }
 
 /* space between nav links */

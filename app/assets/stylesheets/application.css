@@ -33,6 +33,26 @@
 	font-size: 1em;
 	color: rgb(255, 255, 255);
 }
+/*.alert {
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	font-family: 'Iceland', cursive;
+	font-size: 20px;
+   	border-radius: 8px;
+   	color: rgb(22, 134, 160);
+	text-align: center;
+}
+.alert-success {
+	background-color: rgba(255, 255, 255, .9);
+   	width: 280px;
+   	height: 50px;
+   	// padding-top: 10px;
+   	z-index: 9999;
+}*/
+
+
+
 
 .navmenu_sm {
 	left:0;

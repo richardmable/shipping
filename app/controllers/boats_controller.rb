@@ -43,6 +43,8 @@ class BoatsController < ApplicationController
           puts boat_owner
           #make the association through the join table connecting the boat with its owner
           boat_owner.boats<<boat
+          #this step to put the id of the port manager in the join table
+          PortManagerBoat.update(port_manager_id: @currentPortManager.id)
           flash[:notice] = "The vessel was created successfully."
           redirect_to boats_path
         #if no boat was created

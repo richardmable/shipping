@@ -24,39 +24,41 @@ class WorkOrdersController < ApplicationController
           q =  f[1][:quantity]
           #q is amount of each container created for the work order (i.e. 5 containers of apples)
           #multiply each container times $125
-          cost = q * 125
+          cost = q
           #push the cost of each set of containers into the cost array
           @costArray.push(cost)
-        end
-        #set shipmentCost to zero in case calculation fails, app won't crash
-        @shipmentCost = 0
-        #rotate through the cost array
-        @costArray.each do |c|
-          #add each part of array to the @shipmentCost
-          @shipmentCost = @shipmentCost + c.to_i 
-        end
-        puts ""
-        puts "SHIPMENT COST SHIPMENT COST SHIPMENT COST"
-        puts @shipmentCost
-      #check to see if the shipment cost is less than $1,000 
-      if @shipmentCost < 1000
-        flash[:alert] = "The Work Order needs to cost at least $1,000. Ship more stuff!"
-        redirect_to :controller => 'salesmen', :action => 'index'
-      else
-        #set the cost params to the calculated shipping cost
-        wo_params[:cost] = @shipmentCost
-        @workorder = WorkOrder.create(wo_params)
-        #loop through the attributes of the containers
-        @c.each do |f|
-          q =  f[1][:quantity]
-            #for each container created, put in the cargo type and weight
-            for i in 0..q.to_i
-              @workorder.containers.push Container.create(cargo_type: f[1][:cargo_type], weight: f[1][:weight] )
-            end
-        end
+      end
+      #set shipmentCost to zero in case calculation fails, app won't crash
+      @shipmentCost = 0
+      #rotate through the cost array
+      @costArray.each do |c|
+        #add each part of array to the @shipmentCost
+        @shipmentCost = @shipmentCost + c.to_i 
+      end
+      #mutiply the total containers by $125 for each container
+      @shipmentCost = @shipmentCost * 125
+      puts ""
+      puts "SHIPMENT COST SHIPMENT COST SHIPMENT COST"
+      puts @shipmentCost
+        #check to see if the shipment cost is less than $1,000 
+        if @shipmentCost < 1000
+          flash[:alert] = "The Work Order needs to cost at least $1,000. Ship more stuff!"
+          redirect_to :controller => 'salesmen', :action => 'index'
+        else
+          #set the cost params to the calculated shipping cost
+          wo_params[:cost] = @shipmentCost
+          @workorder = WorkOrder.create(wo_params)
+          #loop through the attributes of the containers
+          @c.each do |f|
+            q =  f[1][:quantity]
+              #for each container created, put in the cargo type and weight
+              for i in 0..q.to_i
+                @workorder.containers.push Container.create(cargo_type: f[1][:cargo_type], weight: f[1][:weight] )
+              end
+          end
+        redirect_to work_orders_path
       end
     end
-    redirect_to work_orders_path
   end
 
   def destroy

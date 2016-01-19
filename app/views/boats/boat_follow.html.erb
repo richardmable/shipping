@@ -13,6 +13,7 @@
 						<% @boats.each do |b| %>
 						<div class="bo_foll_ip ">
 							<p>Name: <%= b.name %></p>
+							<%= image_tag b.avatar.url (:thumb) %>
 							<p>Container Limit: <%= b.container_limit %></p>
 							<p>Last updated at: <%= b.updated_at %></p>
 							<% if b.at_sea == true %>

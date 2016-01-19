@@ -23,18 +23,14 @@
 							<!-- This will loop the whole div for any ship that is due in (destination set and at sea) -->
 								<% if @currentPortManager %>
 								    <%if @currentPortManager.id == x.destination_port_manager_id && x.at_sea == true %> 
-					
-
-
-
-
-					<div class="boat_show_as">
-						<%=link_to x.name, boat_path(x.id), :class => 'bo_name' %> with
-									    <%=x.container_limit%> containers.
-					</div>	
-					 <%end%>
+										<div class="boat_show_as">
+											<%=link_to x.name, boat_path(x.id), :class => 'bo_name' %> with
+									    	<%=x.container_limit%> containers.
+									    	<%= image_tag x.avatar.url (:medium) %>
+									</div>	
+					 				<%end%>
 								<% end %>
-							<%end%>
+				<%end%>
 					
 			</div>
 		</div>

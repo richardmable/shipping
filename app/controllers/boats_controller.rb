@@ -22,8 +22,11 @@ class BoatsController < ApplicationController
 
   def create
     #validation to check that name is not blank and container limit is an integer
-    if boat_params[:name] == "" || if boat_params[:container_limit] != /\d/
-      flash[:alert] = "Name cannot be blank, or container limit needs to be a number."
+    #the regexp says start of line, range 0-9, end of line. You can't put letters in between,
+    #the begining or end to try to trick it (that's the ^ and $)
+    if boat_params[:name] == "" || if /^[0-9]$/ === boat_params[:container_limit]
+      flash[:alert] = "Fields cannot be blank"
+      redirect_to new_boat_path
     else
       #create the boat with the supplied params. This needs to happen first so that
       # we know the ID of the boat that was just created to enter it into the join table
@@ -46,8 +49,9 @@ class BoatsController < ApplicationController
         else
           #if it wasn't saved, reload the boat create page
           flash[:alert] = "Something went wrong. Abandon ship!"
-          render :back
+          redirect_to new_boat_path
         end
+      end
     end
   end
 

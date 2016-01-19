@@ -15,39 +15,6 @@
 //= require turbolinks
 //= require_tree .
 
-// var cancel = false;
-// $(".salesin").hide();
-// $(".right_home").hover(function(){
-
-// cancel = (cancel)?false: true;    
-// //alert('test');
-// if(!cancel){
-// $(".salesin").hide();
-// }
-// else if(cancel){
-// $(".salesin").show();
-// }
-    
-
-// });
-
-// var w = $(window).width(), h = $(window).height()  
-//         $('#video-block video').css({height: ''+h+'',width: ''+w+''})
-//         $(window).resize(function(){
-//         var w = $(window).width(), h = $(window).height()  
-//         $('#video-block video').css({height: ''+h+'',width: ''+w+''})
-//         })
-
-
-
- // $('.left_home').hover(
- //        function () {
- //            $(".salesin").fadeIn();
- //        },
- //        function () {
- //            $(".salesin").fadeOut();
- //        }
- //    );
 
 //this is to make the flash messaging fade in and out
 $(function(){
@@ -58,7 +25,7 @@ $(function(){
   };
 });
 
-
+// this is the animation slider for the homepage with login fields
 $(document).on("page:update", function(){
     $(".left_home").hover(function(){
       $(this).find(".salesin").delay(1200).fadeIn(800);
@@ -76,5 +43,15 @@ $(document).on("page:update", function(){
       });        
 });
 
+// this is the slideshow for the create boat page
+function slideSwitch() {
+        var $active = $('div.bo_slide IMG.bo_slide_active');
+        var $next = $active.next();    
+        $next.addClass('bo_slide_active').fadeIn(200);
+        $active.removeClass('bo_slide_active').fadeIn(200);
+    }
+    $(function() {
+        setInterval( "slideSwitch()", 3000 ).fadeIn(200);
+});
 
 

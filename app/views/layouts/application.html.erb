@@ -8,10 +8,13 @@
 </head>
 <body>
 	<!-- allows flash messaging -->
-	<div class="flashMessage">
-		<p><%= flash[:notice] if flash[:notice] %></p>
-		<p><%= flash[:alert] if flash[:alert] %></p>
-	</div>
+
+		<% if flash[:notice] -%>
+  				<div class="flashMessage"><p><%= flash[:notice] %><p></div>
+				<% end %>
+				<% if flash[:alert] -%>
+  				<div class="flashMessage"><p><%= flash[:alert] %><p></div>
+		<% end %>
 		<% if @currentSalesman %>
 		<div class="logo_in_sm"></div>
 		<div class="navmenu_sm">

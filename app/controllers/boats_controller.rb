@@ -22,37 +22,35 @@ class BoatsController < ApplicationController
 
   def create
     #validation to check that name is not blank and container limit is an integer
-    #the regexp says start of line, range 0-9, end of line. You can't put letters in between,
-    #the begining or end to try to trick it (that's the ^ and $)
-    if boat_params[:name] == "" || if /^[0-9]$/ === boat_params[:container_limit]
-      flash[:alert] = "Fields cannot be blank"
+    if boat_params[:name] == ""
+      flash[:alert] = "Fields cannot be blank, or your container limit is not a number"
       redirect_to new_boat_path
     else
       #create the boat with the supplied params. This needs to happen first so that
       # we know the ID of the boat that was just created to enter it into the join table
       @boat = Boat.create(boat_params)
-        #if the boat is saved, display messages, redirect to the boats index
-        if @boat.save
-          #set the boat_owner to the current signed in port manager
-          #this is inside the if statment so that an entry does not get made to the join table
-          boat_owner = PortManager.find(@currentPortManager.id)
-          #set the boat to the last created boat, which should be the boat that was just created
-          #it should always be the last boat created in the database
-          boat = Boat.last
-          puts boat
-          puts boat_owner
-          #make the association through the join table connecting the boat with its owner
-          boat_owner.boats<<boat
-          #this step to put the id of the port manager in the join table
-          PortManagerBoat.update(port_manager_id: @currentPortManager.id)
-          flash[:notice] = "The vessel was created successfully."
-          redirect_to boats_path
-        #if no boat was created
-        else
-          #if it wasn't saved, reload the boat create page
-          flash[:alert] = "Something went wrong. Abandon ship!"
-          redirect_to new_boat_path
-        end
+      #if the boat is saved, display messages, redirect to the boats index
+      if @boat.save
+        #set the boat_owner to the current signed in port manager
+        #this is inside the if statment so that an entry does not get made to the join table
+        boat_owner = PortManager.find(@currentPortManager.id)
+        #set the boat to the last created boat, which should be the boat that was just created
+        #it should always be the last boat created in the database
+        boat = Boat.last
+        puts boat
+        puts boat_owner
+        #make the association through the join table connecting the boat with its owner
+        boat_owner.boats.push(boat)
+        #this step to put the id of the port manager in the join table
+        boat_assign = PortManagerBoat.last
+        boat_assign.update(port_manager_id: @currentPortManager.id)
+        flash[:notice] = "The vessel was created successfully."
+        redirect_to boats_path
+      #if no boat was created
+      else
+        #if it wasn't saved, reload the boat create page
+        flash[:alert] = "Something went wrong. Abandon ship!"
+        redirect_to new_boat_path
       end
     end
   end

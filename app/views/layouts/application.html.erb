@@ -18,23 +18,23 @@
 		<% if @currentSalesman %>
 		<div class="logo_in_sm"></div>
 		<div class="navmenu_sm">
-			<a href="/salesmen" id="menu_l">main</a>
-			<a href="/boats" id="menu_l">Vessels</a>
-			<a href="/work_orders" id="menu_l">Work Orders</a>
-			<a href="/salesmen/" id="menu_l">New Work Order</a>
-			<a href="/containers" id="menu_l">Containers</a>
-			<a href="/boat_follow" id="menu_l">Follow A Vessel</a>
+			<div id="menu_l"><%= link_to("MAIN", salesmen_path, method: :get) %></div>
+			<div id="menu_l"><%= link_to("VESSELS", boats_path, method: :get) %></div>
+			<div id="menu_l"><%= link_to("WORK ORDERS", work_orders_path, method: :get) %></div>
+			<div id="menu_l"><%= link_to("NEW WORK ORDER", salesmen_path, method: :get) %></div>
+			<div id="menu_l"><%= link_to("CONTAINERS", containers_path, method: :get) %></div>
+			<div id="menu_l"><%= link_to("FOLLOW A VESSEL", boat_follow_path, method: :get) %></div>
 
 		</div>
 		<% end %>
 		<% if @currentPortManager %>
 		<div class="logo_in_pm"></div>
 		<div class="navmenu_pm">
-			<a href="/port_managers" id="menu_l">main</a>
-			<a href="/boats" id="menu_l">Vessels</a>
-			<a href="/boats/new" id="menu_l">Construct A Ship</a>
-			<a href="/work_orders" id="menu_l">Work Orders</a>
-			<a href="/containers" id="menu_l">Containers</a>
+			<div id="menu_l"><%= link_to("MAIN", port_managers_path, method: :get) %></div>
+			<div id="menu_l"><%= link_to("VESSELS", boats_path, method: :get) %></div>
+			<div id="menu_l"><%= link_to("CONSTRUCT A SHIP", new_boat_path, method: :get) %></div>
+			<div id="menu_l"><%= link_to("WORK ORDERS", work_orders_path, method: :get) %></div>
+			<div id="menu_l"><%= link_to("CONTAINERS", containers_path, method: :get) %></div>
 		</div>
 		<% end %>
 
